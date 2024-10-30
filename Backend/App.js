@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 // for parsing URL-encoded payloads and the form data available on req.body
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 // set the connetion with database
 mongoose
   .connect(
@@ -44,7 +44,7 @@ app.post("/register", async (req, res) => {
       });
 
       await newUser.save();
-      return res.json(newUser);
+      return res.json(`The registration is seccusfuly`);
     } else {
       return res.status(400).json({ message: "User already exists " });
     }
@@ -67,7 +67,7 @@ app.post("/login", async (req, res) => {
       if (!isPasswordMatch) {
         return res.status(400).json({ message: "Invalid password " });
       } else {
-        return res.json(`the exist and Welcome to the next page`);
+        return res.json(`the user exist and Welcome to the next page `);
       }
     }
   } catch (error) {
