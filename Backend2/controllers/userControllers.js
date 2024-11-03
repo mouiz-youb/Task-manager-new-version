@@ -11,7 +11,7 @@ const SignupUser = async (req, res) => {
     const user = await User.signup(username, email, password);
     res.status(200).json({ email, user });
   } catch (error) {
-    res.status(400).json({ error: error.mssg });
+    res.status(400).json({ error: error.message });
   }
 };
 export default { loginUser, SignupUser };
