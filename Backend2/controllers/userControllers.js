@@ -1,15 +1,31 @@
 import User from "../models/Usermodels.js";
-
+import jwt from "jsonwebtoken";
+// Create the token function to used in loginuser & signupuser
+const createToken = (_id) => {
+  return jwt.sign({ _id }, "abcjdaljowep2830938437dnsmandna", {
+    expiresIn: "3d",
+  });
+};
 // login user
 const loginUser = async (req, res) => {
-  res.json({ mssg: `login user` });
+  const { email, password } = req.body;
+  try {
+    const user = await User.login(email, password);
+    // create the token
+    const token = createToken(user._id);
+    res.status(200).json({ mgs: "your are login ", email, token });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 // signup user
 const SignupUser = async (req, res) => {
   const { username, email, password } = req.body;
   try {
     const user = await User.signup(username, email, password);
-    res.status(200).json({ email, user });
+    // create the token
+    const token = createToken(user._id);
+    res.status(200).json({ email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
