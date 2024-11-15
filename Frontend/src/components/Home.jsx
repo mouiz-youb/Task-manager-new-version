@@ -5,6 +5,7 @@ import { useBearStore } from "../../Zustend-store/AuthStore";
 import { useAuth } from "../../Zustend-store/AuthStore";
 import { useNavigate } from "react-router-dom";
 import { useLogout } from "../hook/useLogout";
+import { Link } from "react-router-dom";
 function Home() {
   const user = useAuth((state) => state.user);
   const logout = useLogout();
@@ -18,7 +19,7 @@ function Home() {
       <p>Welcome {user}</p>
       <div className="btn-baybay">
         <button onClick={handelclick}>log out</button>
-        <button>login</button>
+        <Link to="/login">login</Link>
       </div>
     </div>
   );
