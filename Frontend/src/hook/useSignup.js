@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../Zustend-store/AuthStore";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 // export const useSignup = () => {
 //   // const user
 //   const [error, setError] = useState(null);
@@ -50,17 +51,22 @@ export const useSignup = () => {
       localStorage.setItem("token", JSON.stringify(token));
       // update the useAuth store
       login(userData);
+      toast.success("Signup successful! Welcome to the platform!");
       navigate("/home");
     } catch (error) {
       // handel errors
       if (error.response) {
         console.error("Error Response:", error.response);
         setError(error.response.data?.error || "An unknown error occurred");
+        toast.error(
+          error.response?.data?.error || "Signup failed. Please try again."
+        );
       } else {
         console.error(
           `Error: ${error.message || "An unknown error occurred2"}`
         );
         setError(`Error: ${error.message || "An unknown error occurred2"}`);
+        toast.error(error.message || "Signup failed. Please try again.");
       }
     } finally {
       setIsloading(false);
