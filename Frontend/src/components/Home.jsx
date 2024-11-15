@@ -4,19 +4,22 @@ import axios from "axios";
 import { useBearStore } from "../../Zustend-store/AuthStore";
 import { useAuth } from "../../Zustend-store/AuthStore";
 import { useNavigate } from "react-router-dom";
+import { useLogout } from "../hook/useLogout";
 function Home() {
   const user = useAuth((state) => state.user);
+  const logout = useLogout();
+  const navigate = useNavigate();
+  const handelclick = () => {
+    logout();
+    navigate("/login");
+  };
   return (
     <div className="home-container">
-      <h1 className="header-home">hello form the home page</h1>
-      <h1>the email user is {user} </h1>
-      <div className="btn-home">
-        <button className="btn-auth">login </button>
-        <button className="btn-auth">logout </button>
+      <p>Welcome {user}</p>
+      <div className="btn-baybay">
+        <button onClick={handelclick}>log out</button>
+        <button>login</button>
       </div>
-      <p></p>
-      {/* <p>{user ? `Logged in as ${user.name}` : "Not logged in"}</p> */}
-      {/* <h2>{user ? `logged in as ${user.name}` : `not logged in `} </h2> */}
     </div>
   );
 }
@@ -33,3 +36,21 @@ export default Home;
 //   (state) => state.descreasePopulation
 // );
 // const removeAllBears = useBearStore((state) => state.removeAllBears);
+
+// <div className="home-container">
+{
+  /* <h1 className="header-home">hello form the home page</h1>
+<h1>the email user is {user} </h1>
+<div className="btn-home">
+  <button className="btn-auth">login </button>
+  <button className="btn-auth">logout </button>
+</div>
+<p></p> */
+}
+{
+  /* <p>{user ? `Logged in as ${user.name}` : "Not logged in"}</p> */
+}
+{
+  /* <h2>{user ? `logged in as ${user.name}` : `not logged in `} </h2> */
+}
+// </div>
