@@ -25,7 +25,7 @@ const SignupUser = async (req, res) => {
     const user = await User.signup(username, email, password);
     // create the token
     const token = createToken(user._id);
-    res.status(200).json({ email, token });
+    res.status(200).json({ msg: "your are sign up", email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

@@ -3,66 +3,73 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useSignup } from "../hook/useSignup";
 function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handelSubmit = (e) => {
+  const { signup, isloading, error } = useSignup();
+  const handelSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3004/register", {
-        username: username,
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        if (response.data === "The registration is seccusfuly") {
-          alert("Registration is successful");
-          navigate("/home");
-        }
-      })
-      .catch(() => {
-        console.log("error");
-      });
+    const user = {
+      username,
+      email,
+      password,
+    };
+    console.log(user);
+    await signup(username, email, password);
   };
   return (
-    <form className="Sign-up" onSubmit={handelSubmit}>
-      <h1>Sign up</h1>
+    <form onSubmit={handelSubmit}>
+      <div className="header">
+        <h1>Sign Up</h1>
+      </div>
       <div className="input-container">
         <input
           type="text"
-          placeholder="Enter the username"
+          placeholder="Enter the Username"
           onChange={(e) => {
             setUsername(e.target.value);
           }}
         />
         <input
           type="email"
-          placeholder="Enter the email"
+          placeholder="Enter the Email"
           onChange={(e) => {
             setEmail(e.target.value);
           }}
         />
         <input
           type="password"
-          placeholder="Enter the password"
+          placeholder="Enter the Password "
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
       </div>
       <div className="btn-container">
-        <div className="btn-submit">
-          <button type="submit">Signup</button>
-        </div>
-        <div className="Have-account">
-          <p>if yo have account </p>
-          <Link to="/login">Log In</Link>
+        <button type="submit">Sign up</button>
+        <div>
+          Already have an account? <Link to="/login">Login</Link>
         </div>
       </div>
+      {error && <div className="is error"> {error} </div>}
+      {isloading && <div className="is isloading"> {isloading} </div>}
     </form>
   );
 }
 
 export default Signup;
+// axios
+// .post("http://localhost:3005/user/signup", {
+//   username: username,
+//   email: email,
+//   password: password,
+// })
+// .then((response) => {
+//   console.log(response.data);
+// })
+// .catch(() => {
+//   console.log("error");
+// });

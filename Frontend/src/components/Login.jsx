@@ -31,39 +31,20 @@ function Login() {
       });
   };
   return (
-    <form className="Sign-up" onSubmit={handelSubmit}>
-      <h1>Log In</h1>
+    <form>
+      <div className="header">
+        <h1>log In</h1>
+      </div>
       <div className="input-container">
-        <input
-          type="text"
-          placeholder="Enter the username"
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        />
-        <input
-          type="email"
-          placeholder="Enter the email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <input
-          type="password"
-          placeholder="Enter the password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
+        <input type="email" placeholder="Enter the Email" />
+        <input type="password" placeholder="Enter the Password " />
       </div>
       <div className="btn-container">
-        <div className="btn-submit">
-          {/* <button type="submit">Log In </button> */}
-          <input type="submit" />
-        </div>
-        <div className="Have-account">
-          <p>if you don't have account </p>
-          <Link to="/">Sign up</Link>
+        <button type="submit" onClick={handelSubmit}>
+          log in
+        </button>
+        <div>
+          don't have an account? <Link to="/">Sign up</Link>
         </div>
       </div>
     </form>

@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import FormX from "./components/FormX";
 function App() {
   return (
     <div className="app-container">
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/form" element={<FormX />} />
         </Routes>
       </BrowserRouter>
     </div>
