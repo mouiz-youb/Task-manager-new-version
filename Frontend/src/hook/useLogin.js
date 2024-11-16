@@ -20,7 +20,7 @@ export const useLogin = () => {
       const userData = response.data.user;
       const token = response.data.token;
       //Destructure response
-      console.log("Signup Successful!", userData, token);
+      console.log("login Successful!", userData, token);
       // save user and the token inside the local storage
       localStorage.setItem("userData", JSON.stringify(userData));
       localStorage.setItem("token", JSON.stringify(token));
