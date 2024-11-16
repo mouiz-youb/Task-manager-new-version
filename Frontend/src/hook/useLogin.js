@@ -17,12 +17,12 @@ export const useLogin = () => {
         password: password,
       });
       // const { userData, token } = response.data;
-      const userData = response.data.email;
+      const userData = response.data.user;
       const token = response.data.token;
       //Destructure response
       console.log("Signup Successful!", userData, token);
       // save user and the token inside the local storage
-      localStorage.setItem("user", JSON.stringify(userData));
+      localStorage.setItem("userData", JSON.stringify(userData));
       localStorage.setItem("token", JSON.stringify(token));
       // update the useAuth store
       login(userData);

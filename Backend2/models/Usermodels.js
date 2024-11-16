@@ -57,8 +57,13 @@ userSchema.statics.login = async function (email, password) {
   if (!isValid) {
     throw new Error("the password is not correct");
   }
+  const userObject = user.toObject(); // Convert Mongoose document to plain object
+  delete userObject.password; // Remove the password field
+  const userData = userObject; // Store the remaining fields in userData
+  const username = userData.username;
+  // const email = userData.email;
   // the next line return the User
-  return user;
+  return { username, email };
 };
 const User = mongoose.model("user", userSchema);
 export default User;
