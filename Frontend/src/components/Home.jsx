@@ -1,26 +1,37 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 import axios from "axios";
-import { useBearStore } from "../../Zustend-store/AuthStore";
-import { useAuth } from "../../Zustend-store/AuthStore";
+// import { useBearStore } from "../../Zustend-store/AuthStore";
+import { useAuth } from "../../Zustend-store/AuthStore.js";
 import { useNavigate } from "react-router-dom";
 import { useLogout } from "../hook/useLogout";
+import { useInitializeAuth } from "../hook/useInitializeAuth.js";
 import { Link } from "react-router-dom";
 function Home() {
   const user = useAuth((state) => state.user);
   const logout = useLogout();
   const navigate = useNavigate();
+  useInitializeAuth();
   const handelclick = () => {
     logout();
+
     navigate("/login");
   };
   return (
     <div className="home-container">
       <p>Welcome {user}</p>
-      <div className="btn-baybay">
-        <button onClick={handelclick}>log out</button>
-        <Link to="/login">login</Link>
-      </div>
+      {user ? (
+        <button className="btn-logout" onClick={handelclick}>
+          log out
+        </button>
+      ) : (
+        <div className="links">
+          <Link to="/login">login</Link>
+          <Link to="/signup">signup</Link>
+        </div>
+      )}
+      {/* <button onClick={handelclick}>log out</button>
+      <Link to="/login">login</Link> */}
     </div>
   );
 }

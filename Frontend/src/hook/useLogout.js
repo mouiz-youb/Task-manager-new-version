@@ -1,4 +1,4 @@
-import { useAuth } from "../../Zustend-store/AuthStore";
+import { useAuth } from "../../Zustend-store/AuthStore.js";
 export const useLogout = () => {
   const logout = useAuth((state) => state.logout);
   const Logout = () => {

@@ -44,13 +44,18 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 20px;
+  font-size: xx-large;
 }
-.home-container .btn-baybay {
+.btn-logout {
+  font-size: xx-large;
+}
+.links {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  gap: 20px;
+  flex-direction: column;
+  gap: 15px;
 }
 .header {
   border: 1px solid;
