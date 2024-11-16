@@ -18,13 +18,14 @@ body {
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(7, 1fr);
   grid-template-areas:
-    ". . . . . . . "
+    "navbar navbar navbar navbar navbar  navbar navbar "
     ". . form form form . ."
     ". . form form form . ."
     ". . form form form . ."
     ". . form form form . ."
     ". . form form form . ."
     ". . . . . . . ";
+  gap: 10px;
 }
 form {
   grid-area: form;
@@ -36,6 +37,49 @@ form {
     "header" "header" "input" "input" "input"
     "input" "input" "btn" "btn" "is";
   margin: 0px 50px;
+}
+.Navbar {
+  grid-area: navbar;
+  border: 1px solid;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: "logo logo item item item item item btn btn btn ";
+}
+.container-logo {
+  grid-area: logo;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-logo p {
+  font-size: xxx-large;
+  font-weight: bolder;
+}
+.nav-item-container {
+  grid-area: item;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 15px;
+}
+.nav-item {
+  font-weight: bold;
+  list-style: none;
+}
+.nav-item a {
+  text-decoration: none;
+  color: black;
+}
+.btn-auth {
+  grid-area: btn;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .home-container {
   grid-area: form;

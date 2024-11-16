@@ -14,12 +14,10 @@ function Home() {
   useInitializeAuth();
   const handelclick = () => {
     logout();
-
     navigate("/login");
   };
   return (
     <div className="home-container">
-      <p>Welcome {user}</p>
       {user ? (
         <button className="btn-logout" onClick={handelclick}>
           log out
