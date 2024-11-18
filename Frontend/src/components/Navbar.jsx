@@ -12,7 +12,7 @@ function Navbar() {
   useInitializeAuth();
   const hadelLogout = () => {
     Logout();
-    navigate("/login");
+    navigate("/home");
   };
   return (
     <div className="Navbar">

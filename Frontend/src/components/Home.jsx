@@ -18,18 +18,7 @@ function Home() {
   };
   return (
     <div className="home-container">
-      {user ? (
-        <button className="btn-logout" onClick={handelclick}>
-          log out
-        </button>
-      ) : (
-        <div className="links">
-          <Link to="/login">login</Link>
-          <Link to="/signup">signup</Link>
-        </div>
-      )}
-      {/* <button onClick={handelclick}>log out</button>
-      <Link to="/login">login</Link> */}
+      <h1>home</h1>
     </div>
   );
 }
