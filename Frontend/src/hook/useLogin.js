@@ -27,7 +27,7 @@ export const useLogin = () => {
       // update the useAuth store
       login(userData);
       toast.success("Login successful! Welcome to the platform!");
-      navigate("/home");
+      navigate("/task");
     } catch (error) {
       // handel errors
       if (error.response) {

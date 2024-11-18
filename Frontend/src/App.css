@@ -74,12 +74,50 @@ form {
   text-decoration: none;
   color: black;
 }
-.btn-auth {
+/* .btn-auth {
   grid-area: btn;
   border: 1px solid;
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+.small-profile {
+  grid-area: btn;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.prifile-content {
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn-nav-Auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+.small-profile .btn-log-auth {
+  width: 100px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: rgb(0, 119, 255);
+  color: white;
+  border: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 .home-container {
   grid-area: form;
