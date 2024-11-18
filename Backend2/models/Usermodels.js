@@ -39,7 +39,12 @@ userSchema.statics.signup = async function (username, email, password) {
   const hashPassword = await bcrypt.hash(password, salt);
   //   the next line to store the user inside the database
   const user = await this.create({ username, email, password: hashPassword });
+  // const userData = userObject;
   return user;
+  // return {
+  //   username: user.username,
+  //   email: user.email,
+  // };
 };
 // static methode to loign
 userSchema.statics.login = async function (email, password) {
