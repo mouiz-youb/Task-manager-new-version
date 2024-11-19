@@ -1,12 +1,12 @@
 import express from "express";
-// import cors from "cors";
 import cors from "cors";
 import mongoose from "mongoose";
-import bodyParser from "body-parser";
 import router from "./routers/user.js";
+import routerTask from "./routers/TaskRoutes.js";
 const app = express();
 const port = 3005;
 const Userrouter = router;
+const Taskrouter = routerTask;
 // routes of the app
 mongoose
   .connect(
@@ -16,7 +16,9 @@ mongoose
   .catch(() => console.log(`not connected to database`));
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/user", Userrouter);
+app.use("/Task", Taskrouter);
 app.get("/", (req, res) => {
   res.send("Hello World form the king one ");
 });
