@@ -1,24 +1,13 @@
 import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
+import Links from "./Links";
 function Nav() {
   return (
     <ul className="nav-task">
-      <li>
-        <Link className="links-task" to="/alltask">
-          All Task
-        </Link>
-      </li>
-      <li>
-        <Link className="links-task" to="/remider">
-          Remider
-        </Link>
-      </li>
-      <li>
-        <Link className="links-task" to="/taskthree">
-          look Task
-        </Link>
-      </li>
+      <Links title="All task" to="/alltask" />
+      <Links title="Remider" to="/remider" />
+      <Links title="Look Task" to="/taskthree" />
     </ul>
   );
 }
