@@ -19,15 +19,30 @@ body {
   grid-template-rows: repeat(7, 1fr);
   grid-template-areas:
     "navbar navbar navbar navbar navbar  navbar navbar "
-    ". . form form form . ."
-    ". . form form form . ."
-    ". . form form form . ."
-    ". . form form form . ."
-    ". . form form form . ."
-    ". . . . . . . ";
+    "container  container  container container container container  container "
+    "container  container  container container container container  container "
+    "container  container  container container container container  container "
+    "container  container  container container container container  container "
+    "container  container  container container container container  container "
+    "container container container container container container container ";
   gap: 10px;
 }
-form {
+/*? form styling */
+.container-of-from {
+  grid-area: container;
+  border: 1px solid;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas:
+    ". form form form . "
+    ". form form form . "
+    ". form form form . "
+    ". form form form ."
+    ". form form form . ";
+  /* margin: 0px 50px; */
+}
+.auth-form {
   grid-area: form;
   border: 1px solid;
   display: grid;
@@ -36,7 +51,7 @@ form {
   grid-template-areas:
     "header" "header" "input" "input" "input"
     "input" "input" "btn" "btn" "is";
-  margin: 0px 50px;
+  margin: 50px 100px;
 }
 .Navbar {
   grid-area: navbar;
@@ -74,13 +89,6 @@ form {
   text-decoration: none;
   color: black;
 }
-/* .btn-auth {
-  grid-area: btn;
-  border: 1px solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 .small-profile {
   grid-area: btn;
   border: 1px solid;
@@ -188,4 +196,104 @@ input {
 }
 .isloading {
   color: blue;
+}
+/* ! Task styling */
+.Task-container {
+  grid-area: container;
+  margin: 10px;
+  border: 1px solid;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header" "header" "nav" "form" "form"
+    "form" "form" "form" "form" "form";
+}
+.header-container {
+  grid-area: header;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-container h1 {
+  font-size: 80px;
+}
+.Task-nav-links {
+  grid-area: nav;
+  border: 1px solid;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: " . . .nav nav nav nav . . . ";
+}
+.nav-task {
+  grid-area: nav;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+.nav-task li {
+  list-style: none;
+}
+.nav-task li .links-task {
+  text-decoration: none;
+}
+.form-create-task {
+  grid-area: form;
+  border: 1px solid;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: ". . form form form form form form . .";
+}
+.task-form {
+  grid-area: form;
+  border: 1px solid;
+  margin: 0px 50px;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header" "header" "input" "input" "input"
+    "input" "input" "input" "btn" "btn";
+}
+.header-task-form {
+  grid-area: header;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-task-form h1 {
+  font-size: xx-large;
+}
+.input-task-form {
+  grid-area: input;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.input-Task {
+  padding: 10px;
+}
+.btn-task-form {
+  grid-area: btn;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-task-form button {
+  width: 150px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 10px;
 }

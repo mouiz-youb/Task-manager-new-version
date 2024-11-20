@@ -18,35 +18,37 @@ function Login() {
     await Login(email, password);
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="header">
-        <h1>log In</h1>
-      </div>
-      <div className="input-container">
-        <input
-          type="email"
-          placeholder="Enter the Email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <input
-          type="password"
-          placeholder="Enter the Password "
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-      </div>
-      <div className="btn-container">
-        <button type="submit">log in</button>
-        <div>
-          don't have an account? <Link to="/">Sign up</Link>
+    <div className="container-of-from">
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <div className="header">
+          <h1>log In</h1>
         </div>
-      </div>
-      {error && <div className="is error"> {error} </div>}
-      {isloading && <div className="is isloading"> {isloading} </div>}
-    </form>
+        <div className="input-container">
+          <input
+            type="email"
+            placeholder="Enter the Email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Enter the Password "
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+        <div className="btn-container">
+          <button type="submit">log in</button>
+          <div>
+            don't have an account? <Link to="/">Sign up</Link>
+          </div>
+        </div>
+        {error && <div className="is error"> {error} </div>}
+        {isloading && <div className="is isloading"> {isloading} </div>}
+      </form>
+    </div>
   );
 }
 

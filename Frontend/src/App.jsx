@@ -6,6 +6,9 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import FormX from "./components/FormX";
 import Navbar from "./components/Navbar";
+import AllTask from "./components/AllTask";
+import TaskThree from "./components/TaskThree";
+import Remider from "./components/Remider";
 import { Toaster } from "react-hot-toast";
 import { useInitializeAuth } from "./hook/useInitializeAuth";
 import Task from "./components/Task";
@@ -22,6 +25,9 @@ function App() {
           <Route path="/task" element={<Task />} />
           <Route path="/home" element={<Home />} />
           <Route path="/form" element={<FormX />} />
+          <Route path="/alltask" element={<AllTask />} />
+          <Route path="/remider" element={<Remider />} />
+          <Route path="/taskthree" element={<TaskThree />} />
         </Routes>
       </>
     </div>

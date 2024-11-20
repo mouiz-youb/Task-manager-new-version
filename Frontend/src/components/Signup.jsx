@@ -21,42 +21,44 @@ function Signup() {
     await signup(username, email, password);
   };
   return (
-    <form onSubmit={handelSubmit}>
-      <div className="header">
-        <h1>Sign Up</h1>
-      </div>
-      <div className="input-container">
-        <input
-          type="text"
-          placeholder="Enter the Username"
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        />
-        <input
-          type="email"
-          placeholder="Enter the Email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <input
-          type="password"
-          placeholder="Enter the Password "
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-      </div>
-      <div className="btn-container">
-        <button type="submit">Sign up</button>
-        <div>
-          Already have an account? <Link to="/login">Login</Link>
+    <div className="container-of-from">
+      <form className="auth-form" onSubmit={handelSubmit}>
+        <div className="header">
+          <h1>Sign Up</h1>
         </div>
-      </div>
-      {error && <div className="is error"> {error} </div>}
-      {isloading && <div className="is isloading"> {isloading} </div>}
-    </form>
+        <div className="input-container">
+          <input
+            type="text"
+            placeholder="Enter the Username"
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
+          <input
+            type="email"
+            placeholder="Enter the Email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <input
+            type="password"
+            placeholder="Enter the Password "
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+        <div className="btn-container">
+          <button type="submit">Sign up</button>
+          <div>
+            Already have an account? <Link to="/login">Login</Link>
+          </div>
+        </div>
+        {error && <div className="is error"> {error} </div>}
+        {isloading && <div className="is isloading"> {isloading} </div>}
+      </form>
+    </div>
   );
 }
 
