@@ -6,7 +6,7 @@ import Links from "./Links";
 import { useTask } from "../../Zustend-store/TaskStore";
 import { useInitializeTask } from "../hook/useInitializeTask.js";
 function TaskThree() {
-  useInitializeTask();
+  // useInitializeTask();
   const task = useTask((state) => state.task);
   return (
     <div className="Task-container-three">

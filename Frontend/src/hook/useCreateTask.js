@@ -24,9 +24,10 @@ export const useCreateTask = () => {
       );
       if (response.status === 201) {
         const newtask = response.data;
+        // localStorage.setItem("newtask", JSON.stringify(newtask));
+        // const storeTask = JSON.parse(localStorage.getItem("newtask"));
         addtask(newtask);
         console.log(`create task Successful! ${newtask} ${task}`);
-        localStorage.setItem("newtask", JSON.stringify(newtask));
         toast.success("Create task  successful! let show it !");
       }
       navigate("/taskthree");

@@ -18,15 +18,8 @@ export const useSignup = () => {
         email: email,
         password: password,
       });
-      // const { userData, token } = response.data;
-      // const useremail = response.data.email;
-      // const username = response.data.username;
       const userData = response.data.userData;
       const token = response.data.token;
-      // const userData = {
-      //   username: username,
-      //   email: useremail,
-      // };
       //Destructure response
       console.log("Signup Successful!", userData, token);
       // save user and the token inside the local storage

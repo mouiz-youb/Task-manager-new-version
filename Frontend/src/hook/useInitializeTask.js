@@ -6,13 +6,15 @@ export const useInitializeTask = () => {
   const task = useTask((state) => state.task);
   useEffect(() => {
     const storeTask = JSON.parse(localStorage.getItem("newtask"));
-    if (storeTask) {
-      if (!task.some((t) => t.title === storeTask.title)) {
-        console.log("Adding task from localStorage: ", storeTask);
-        addtask(storeTask);
-      } else {
-        console.log("Task already exists in state: ", storeTask);
-      }
+    if (storeTask && !task.some((t) => t.title === storeTask.title)) {
+      addtask(storeTask);
+      //   console.log(task.some((t) => t.title !== storeTask.title));
+      //   if (!task.some((t) => t.title === storeTask.title)) {
+      //     console.log("Adding task from localStorage: ", storeTask);
+      //     addtask(storeTask);
+      //   } else {
+      //     console.log("Task already exists in state: ", storeTask);
+      //   }
     } else {
       console.log("no task found in locale storage");
     }

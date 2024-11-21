@@ -46,8 +46,18 @@ const UpdateTask = async (req, res) => {
   return res.status().json({ messege: "the update is seccese" }, task);
 };
 // list all Task
-const ListAllTask = (req, res) => {
-  res.send(`list all Task`);
+const ListAllTask = async (req, res) => {
+  const Tasks = await Task.find({}).sort({ createdAt: -1 });
+  try {
+    if (Tasks.length > 0) {
+      res.status(200).json(Tasks);
+    } else {
+      res.status(404).json({ message: "No tasks available" });
+    }
+  } catch (error) {
+    console.error("Error fetching tasks:", error.message);
+    res.status(500).json({ error: error.message });
+  }
 };
 // list one Task by Titel
 const ListoneTask = (req, res) => {
