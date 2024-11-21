@@ -6,7 +6,7 @@ function AllTask() {
   return (
     <div className="Task-container">
       <div className="header-container">
-        <h1>Look all Taks</h1>
+        <h1>Look all Task</h1>
       </div>
       <div className="Task-nav-links">
         <ul className="nav-task">
