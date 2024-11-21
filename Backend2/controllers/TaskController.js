@@ -3,10 +3,14 @@ import Task from "../models/Taskmodels.js";
 // craete Task
 const CreateTask = async (req, res) => {
   const { title, descreption, time } = req.body;
+  if (!title || !descreption || !time) {
+    return res.status(400).json({ error: "All fields are required." });
+  }
   try {
     const task = await Task.create({ title, descreption, time });
     res.status(201).json(task);
   } catch (error) {
+    console.error("Error creating task:", error.message);
     res.status(400).json({ error: error.message });
   }
 };

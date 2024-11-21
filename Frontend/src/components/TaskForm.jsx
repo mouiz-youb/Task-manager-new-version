@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "../App.css";
+import { useCreateTask } from "../hook/useCreateTask";
 function TaskForm() {
   const [title, setTitle] = useState();
   const [descreption, setDescreption] = useState();
   const [date, setDate] = useState();
-  const HandleTask = (e) => {
+  const { createTask, error, isloading } = useCreateTask();
+  const HandleTask = async (e) => {
     e.preventDefault();
     const task = {
       title: title,
@@ -12,6 +14,7 @@ function TaskForm() {
       date: date,
     };
     console.log(task);
+    await createTask(title, descreption, date);
   };
   return (
     <form onSubmit={HandleTask} className="task-form">
@@ -47,6 +50,8 @@ function TaskForm() {
       <div className="btn-task-form">
         <button type="submit">Create Taks</button>
       </div>
+      {error && <div className="is error"> {error} </div>}
+      {isloading && <div className="is isloading"> {isloading} </div>}
     </form>
   );
 }
