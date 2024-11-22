@@ -12,6 +12,9 @@ export const useSignup = () => {
   // the request function
   const signup = async (username, email, password) => {
     setIsloading(true), setError(null);
+    {
+      isloading ? toast.loading(`is loading`) : "";
+    }
     try {
       const response = await axios.post("http://localhost:3005/user/signup", {
         username: username,

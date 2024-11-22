@@ -128,7 +128,7 @@ body {
   text-decoration: none;
 }
 .home-container {
-  grid-area: form;
+  grid-area: container;
   border: 1px solid;
   display: flex;
   justify-content: center;

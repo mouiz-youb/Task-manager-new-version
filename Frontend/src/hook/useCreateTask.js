@@ -12,6 +12,9 @@ export const useCreateTask = () => {
   const navigate = useNavigate();
   const createTask = async (title, descreption, time) => {
     setIsloading(true);
+    {
+      isloading ? toast.loading(`is loading`) : "";
+    }
     setError(null);
     try {
       const response = await axios.post(

@@ -16,34 +16,53 @@ const CreateTask = async (req, res) => {
 };
 // delete Task
 const DeleteTask = async (req, res) => {
-  const { id } = req.params;
-  if (!mongoose.Types.ObjectId.isValid({ id: id })) {
-    return res.status(404).json({ error: "Invalid id" });
+  // const { id } = req.params;
+  // if (!mongoose.Types.ObjectId.isValid({ id: id })) {
+  //   return res.status(404).json({ error: "Invalid id" });
+  // }
+  // const task = await Task.findByIdAndDelete(id);
+  // if (!task) {
+  //   return res.status(400).json({ error: "invalid id " });
+  // }
+  // return res.status(200).json({ message: "Task deleted successfully" }, task);
+  const { title } = req.params;
+  try {
+    const TaskFound = await Task.findOneAndDelete({ title });
+    if (!TaskFound) {
+      return res.status(404).json({ error: "Task nont found" });
+    }
+    return res
+      .status(200)
+      .json({ message: "Task deleted successfully", TaskFound });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
   }
-  const task = await Task.findByIdAndDelete(id);
-  if (!task) {
-    return res.status(400).json({ error: "invalid id " });
-  }
-  return res.status(200).json({ message: "Task deleted successfully" }, task);
 };
 // update Task
 const UpdateTask = async (req, res) => {
-  const { id } = req.params;
-  if (!mongoose.Types.ObjectId.isValid({ id: id })) {
-    return res.status(404).json({ error: "Invalid id" });
-  }
-  const task = await Task.findByIdAndUpdate(
-    { id: id },
-    {
-      title: req.body.title,
-      descreption: req.body.descreption,
-      time: req.body.time,
+  const { title } = req.params;
+  try {
+    const TaskFound = await Task.findOne({ title });
+    if (!TaskFound) {
+      return res.status(404).json({ error: "Task not found" });
     }
-  );
-  if (!task) {
-    return res.status(400).json({ error: "invalid id " });
+    const { newtitle, descreption, time } = req.body;
+    const updatedTask = await Task.findOneAndUpdate(
+      { title },
+      {
+        title: newtitle || TaskFound.title,
+        descreption: descreption || TaskFound.descreption,
+        time: time || TaskFound.time,
+      },
+      { new: true }
+    );
+    return res
+      .status(200)
+      .json({ message: "Task updated successfully", task: updatedTask });
+  } catch (error) {
+    console.error("Error updating task:", error.message);
+    res.status(500).json({ error: "Server error during task update" });
   }
-  return res.status().json({ messege: "the update is seccese" }, task);
 };
 // list all Task
 const ListAllTask = async (req, res) => {
@@ -60,8 +79,21 @@ const ListAllTask = async (req, res) => {
   }
 };
 // list one Task by Titel
-const ListoneTask = (req, res) => {
-  res.send(`list one Task`);
+// routerTask.get("OneTask/:title", ListoneTask);
+const ListoneTask = async (req, res) => {
+  const { title } = req.params;
+  // first i need to find the task who have this title
+  try {
+    const TaskFound = await Task.findOne({ title });
+    if (!TaskFound) {
+      console.log(`the task not found`);
+      return res.status(404).json({ error: "task not found" });
+    }
+    return res.status(200).json(TaskFound);
+  } catch (error) {
+    console.log("Error fetching task:", error.message);
+    res.status(500).json({ error: error.message });
+  }
 };
 //search by Time
 const SearchTimeTask = (req, res) => {
