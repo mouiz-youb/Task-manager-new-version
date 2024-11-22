@@ -1,35 +1,37 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTask } from "../../Zustend-store/TaskStore";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 export const useInitializeTask = () => {
-  const addtask = useTask((state) => state.addtask);
-  const task = useTask((state) => state.task);
+  const [task, setTask] = useState([]);
   useEffect(() => {
-    // fetch tasks from the backned api
-    const fetchTasks = async () => {
+    const ListTask = async () => {
+      const response = await axios.get("http://localhost:3005/Task/AllTask");
       try {
-        const response = await axios.get("http://localhost:3005/Task/AllTask");
-        const Tasks = response.data;
-        // add each task to zustand store
-        Tasks.forEach((task) => {
-          let isExistingTask = false;
-          for (let i = 0; i < task.length; i++) {
-            if (task[i]._id === task._id) {
-              isExistingTask = true;
-              break; // If we find a match, stop checking further
-            }
-          }
-          if (!isExistingTask) {
-            addtask(task); // Only add the task if it doesn't already exist in the state
-          }
-        });
+        if (!response.data) {
+          toast.error("No task found");
+        }
+        setTask(response.data);
+        toast.success("Tasks loaded successfully!");
       } catch (error) {
-        console.error("Error fetching tasks from the backend:", error);
-        toast.error(error);
+        console.error("Error fetching tasks:", error);
+        toast.error(
+          error.response?.data?.error || "Failed to load tasks. Try again."
+        );
       }
     };
-    fetchTasks();
-  }, [addtask]);
+    ListTask();
+  }, []);
+  return { task, setTask };
 };
+// const response = await axios.get("http://localhost:3005/Task/AllTask");
+// try {
+//   if (!response) {
+//     toast.error("Error");
+//   }
+//   setTask(response.data);
+// } catch (error) {
+//   toast.error(error.response.data.error);
+// }
+// };

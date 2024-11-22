@@ -6,8 +6,8 @@ import { useTask } from "../../Zustend-store/TaskStore";
 import { useInitializeTask } from "../hook/useInitializeTask";
 import OneTask from "./OneTask";
 function AllTask() {
-  useInitializeTask();
-  const task = useTask((state) => state.task);
+  const { task } = useInitializeTask();
+  // const task = useTask((state) => state.task);
   return (
     <div className="Task-container">
       <div className="header-container">

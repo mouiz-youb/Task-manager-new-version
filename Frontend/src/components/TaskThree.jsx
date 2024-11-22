@@ -5,9 +5,9 @@ import Nav from "./Nav";
 import Links from "./Links";
 import { useTask } from "../../Zustend-store/TaskStore";
 import { useInitializeTask } from "../hook/useInitializeTask.js";
+import { useListLastThreeTask } from "../hook/LastThreeTask.js";
 function TaskThree() {
-  // useInitializeTask();
-  const task = useTask((state) => state.task);
+  const { threetask } = useListLastThreeTask();
   return (
     <div className="Task-container-three">
       <div className="header-container">
@@ -21,9 +21,9 @@ function TaskThree() {
         </ul>
       </div>
       <div className="Last-three-task">
-        {task.length > 0 ? (
+        {threetask.length > 0 ? (
           <>
-            {task.map((singleTask, index) => (
+            {threetask.map((singleTask, index) => (
               <OneTask
                 title={singleTask.title}
                 key={index}

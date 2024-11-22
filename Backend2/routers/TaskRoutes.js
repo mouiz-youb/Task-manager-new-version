@@ -8,6 +8,7 @@ const {
   ListAllTask,
   ListoneTask,
   SearchTimeTask,
+  ListLastThreeTask,
 } = TaskController;
 // create Task router
 routerTask.post("/createTask", CreateTask);
@@ -17,6 +18,8 @@ routerTask.delete("/deleteTask/:title", DeleteTask);
 routerTask.get("/AllTask", ListAllTask);
 // search one Task by Titel
 routerTask.get("/OneTask/:title", ListoneTask);
+// list last three task
+routerTask.get("/LastThreeTask", ListLastThreeTask);
 // search by time
 routerTask.get("SearchTime/:time", SearchTimeTask);
 // update Task

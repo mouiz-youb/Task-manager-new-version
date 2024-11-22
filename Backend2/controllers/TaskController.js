@@ -102,6 +102,21 @@ const ListoneTask = async (req, res) => {
 const SearchTimeTask = (req, res) => {
   res.send(`search Task`);
 };
+// list last three task
+const ListLastThreeTask = async (req, res) => {
+  try {
+    const LastThreeTask = await Task.find({})
+      .sort({ createdAt: -1 }) //Sort by creation time {newest first}
+      .limit(3); //limit to the lat 3 task
+    if (!LastThreeTask) {
+      return res.status(400).json({ error: "not found any task " });
+    }
+    return res.status(200).json(LastThreeTask);
+  } catch (error) {
+    console.log("Error fetching last three tasks:", error.message);
+    res.status(500).json({ error: error.message });
+  }
+};
 export default {
   CreateTask,
   DeleteTask,
@@ -109,4 +124,5 @@ export default {
   ListAllTask,
   ListoneTask,
   SearchTimeTask,
+  ListLastThreeTask,
 };
