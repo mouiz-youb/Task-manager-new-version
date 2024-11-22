@@ -246,9 +246,12 @@ input {
   grid-area: form;
   border: 1px solid;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  overflow-y: scroll;
+  gap: 15px;
+  padding: 20px;
+  /* grid-template-columns: repeat(10, 1fr);
   grid-template-rows: 1fr;
-  grid-template-areas: ". . form form form form form form . .";
+  grid-template-areas: ". . form form form form form form . ."; */
 }
 .task-form {
   grid-area: form;

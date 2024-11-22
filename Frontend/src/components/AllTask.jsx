@@ -2,7 +2,12 @@ import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 import Links from "./Links";
+import { useTask } from "../../Zustend-store/TaskStore";
+import { useInitializeTask } from "../hook/useInitializeTask";
+import OneTask from "./OneTask";
 function AllTask() {
+  useInitializeTask();
+  const task = useTask((state) => state.task);
   return (
     <div className="Task-container">
       <div className="header-container">
@@ -16,7 +21,20 @@ function AllTask() {
         </ul>
       </div>
       <div className="form-create-task">
-        <h1>hello </h1>
+        {task.length > 0 ? (
+          <>
+            {task.map((singleTask, index) => (
+              <OneTask
+                title={singleTask.title}
+                key={index}
+                descreption={singleTask.descreption}
+                time={singleTask.time}
+              />
+            ))}
+          </>
+        ) : (
+          <p>No tasks available.</p>
+        )}
       </div>
     </div>
   );

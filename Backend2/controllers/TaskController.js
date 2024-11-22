@@ -11,7 +11,10 @@ const CreateTask = async (req, res) => {
     res.status(201).json(task);
   } catch (error) {
     console.error("Error creating task:", error.message);
-    res.status(400).json({ error: error.message });
+    res.status(500).json({
+      error:
+        "An error occurred while creating the task. Please try again later.",
+    });
   }
 };
 // delete Task
