@@ -22,36 +22,38 @@ function TaskForm() {
         <h1>Create new task</h1>
       </div>
       <div className="input-task-form">
-        <input
-          type="text"
-          className="input-Task"
-          placeholder="Enter Task Title"
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <input
-          type="text"
-          className="input-Task"
-          placeholder="Enter Task descreption"
-          onChange={(e) => {
-            setDescreption(e.target.value);
-          }}
-        />
-        <input
-          type="date"
-          className="input-Task"
-          placeholder="Enter Task time"
-          onChange={(e) => {
-            setDate(e.target.value);
-          }}
-        />
+        <div className="input-task-form-left">
+          <input
+            type="text"
+            className="input-Task"
+            placeholder="Enter Task Title"
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          />
+          <input
+            type="date"
+            className="input-Task "
+            placeholder="Enter Task time"
+            onChange={(e) => {
+              setDate(e.target.value);
+            }}
+          />
+        </div>
+        <div className="input-task-form-right">
+          <textarea
+            className="input-Task input-desX"
+            placeholder="Enter Task description"
+            rows="5" // Adjust number of rows as needed
+            onChange={(e) => {
+              setDescreption(e.target.value);
+            }}
+          ></textarea>
+        </div>
       </div>
       <div className="btn-task-form">
         <button type="submit">Create Taks</button>
       </div>
-      {error && <div className="is error"> {error} </div>}
-      {isloading && <div className="is isloading"> {isloading} </div>}
     </form>
   );
 }

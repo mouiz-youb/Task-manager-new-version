@@ -166,7 +166,7 @@ body {
 input {
   padding: 0px 10px;
   width: 250px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 18px;
   height: 35px;
 }
@@ -246,12 +246,17 @@ input {
   grid-area: form;
   border: 1px solid;
   display: grid;
+  grid-template-columns: repeat(10.1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: ". . . form form form form . . .";
+}
+.show-all-task {
+  grid-area: form;
+  border: 1px solid;
+  display: grid;
   overflow-y: scroll;
   gap: 15px;
   padding: 20px;
-  /* grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 1fr;
-  grid-template-areas: ". . form form form form form form . ."; */
 }
 .task-form {
   grid-area: form;
@@ -278,6 +283,23 @@ input {
 .input-task-form {
   grid-area: input;
   border: 1px solid;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: "left left left left left right right right right right";
+  gap: 20px;
+}
+.input-task-form-right {
+  grid-area: right;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.input-task-form-left {
+  grid-area: left;
+  border: 1px solid;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -286,6 +308,15 @@ input {
 }
 .input-Task {
   padding: 10px;
+}
+.input-desX {
+  width: 90%;
+  height: 100%;
+  resize: none;
+  border-radius: 10px;
+}
+.input-desX::placeholder {
+  text-align: start;
 }
 .btn-task-form {
   grid-area: btn;

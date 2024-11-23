@@ -20,7 +20,7 @@ function AllTask() {
           <Links title="Look Task" to="taskthree" />
         </ul>
       </div>
-      <div className="form-create-task">
+      <div className="show-all-task">
         {task.length > 0 ? (
           <>
             {task.map((singleTask, index) => (
