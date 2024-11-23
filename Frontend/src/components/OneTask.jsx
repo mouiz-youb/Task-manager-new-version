@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import { Link } from "react-router-dom";
 function OneTask(props) {
   return (
     <div className="one-task">
@@ -10,8 +11,14 @@ function OneTask(props) {
       <div className="task-time">
         <div className="time-section"> {props.time} </div>
         <div className="btn-section">
-          <button>delete</button>
-          <button>update</button>
+          <button className=" delete">
+            <Link className="link-delete">delete</Link>
+          </button>
+          <button className=" update">
+            <Link className="link-update" to="/updatetask">
+              update
+            </Link>
+          </button>
         </div>
       </div>
     </div>

@@ -388,3 +388,22 @@ input {
   border-radius: 15px;
   background-color: transparent;
 }
+/* ?the styling of the btn update and delete  */
+.update {
+  color: rgb(43, 43, 242);
+  border: 1px solid rgb(43, 43, 242);
+  cursor: pointer;
+}
+.link-update {
+  color: rgb(43, 43, 242);
+  text-decoration: none;
+}
+.delete {
+  color: rgb(219, 0, 0);
+  border: 1px solid rgb(219, 0, 0);
+  cursor: pointer;
+}
+.link-delete {
+  color: rgb(219, 0, 0);
+  text-decoration: none;
+}

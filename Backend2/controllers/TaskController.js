@@ -50,10 +50,10 @@ const UpdateTask = async (req, res) => {
       return res.status(404).json({ error: "Task not found" });
     }
     const { newtitle, descreption, time } = req.body;
-    const updatedTask = await Task.findOneAndUpdate(
-      { title },
+    const updatedTask = await Task.findByIdAndUpdate(
+      TaskFound._id,
       {
-        title: newtitle || TaskFound.title,
+        title: newtitle,
         descreption: descreption || TaskFound.descreption,
         time: time || TaskFound.time,
       },

@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import AllTask from "./components/AllTask";
 import TaskThree from "./components/TaskThree";
 import Remider from "./components/Remider";
+import UpdateTask from "./components/UpdateTask";
 import { Toaster } from "react-hot-toast";
 import { useInitializeAuth } from "./hook/useInitializeAuth";
 import Task from "./components/Task";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/alltask" element={<AllTask />} />
           <Route path="/remider" element={<Remider />} />
           <Route path="/taskthree" element={<TaskThree />} />
+          <Route path="/updatetask" element={<UpdateTask />} />
         </Routes>
       </>
     </div>

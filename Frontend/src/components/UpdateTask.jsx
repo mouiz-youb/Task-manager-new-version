@@ -1,12 +1,12 @@
 import React from "react";
-import TaskForm from "./TaskForm";
+import FormX from "./FormX";
 import Nav from "./Nav";
 import Links from "./Links";
-function Task() {
+function UpdateTask() {
   return (
     <div className="Task-container">
       <div className="header-container">
-        <h1>Create Task</h1>
+        <h1>update Task</h1>
       </div>
       <div className="Task-nav-links">
         <ul className="nav-task">
@@ -16,15 +16,16 @@ function Task() {
         </ul>
       </div>
       <div className="form-create-task">
-        <TaskForm
-          formTitle="Create Task"
-          inputOne="Enter the title"
-          taskArea="Enter the descreption"
-          btn="Create Task"
+        <FormX
+          formTitle="Update Task"
+          inputOne="Write the previous title"
+          inputtwo="update the news title"
+          taskArea="update the descreption"
+          btn="Update Task"
         />
       </div>
     </div>
   );
 }
 
-export default Task;
+export default UpdateTask;
