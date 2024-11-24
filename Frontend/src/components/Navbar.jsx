@@ -21,19 +21,19 @@ function Navbar() {
       </div>
       <ul className="nav-item-container">
         <li className="nav-item">
-          <a href="/">home</a>
+          <Link to="/home">home</Link>
         </li>
         <li className="nav-item">
-          <a href="/">about us</a>
+          <Link to="/task">Task</Link>
         </li>
         <li className="nav-item">
-          <a href="/">offer</a>
+          <Link to="/">offer</Link>
         </li>
         <li className="nav-item">
-          <a href="/">shop</a>
+          <Link to="/">shop</Link>
         </li>
         <li className="nav-item">
-          <a href="/">contact us</a>
+          <Link to="/">contact us</Link>
         </li>
       </ul>
       <div className="small-profile">

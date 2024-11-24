@@ -19,15 +19,6 @@ const CreateTask = async (req, res) => {
 };
 // delete Task
 const DeleteTask = async (req, res) => {
-  // const { id } = req.params;
-  // if (!mongoose.Types.ObjectId.isValid({ id: id })) {
-  //   return res.status(404).json({ error: "Invalid id" });
-  // }
-  // const task = await Task.findByIdAndDelete(id);
-  // if (!task) {
-  //   return res.status(400).json({ error: "invalid id " });
-  // }
-  // return res.status(200).json({ message: "Task deleted successfully" }, task);
   const { title } = req.params;
   try {
     const TaskFound = await Task.findOneAndDelete({ title });

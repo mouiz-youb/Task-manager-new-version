@@ -2,10 +2,13 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: white;
 }
 body {
   width: 100vw;
   height: 100vh;
+  background-color: black;
+  /* background-image: linear-gradient(180deg, #5efce8 10%, #736efe 100%); */
 }
 #root {
   width: 100%;
@@ -55,7 +58,7 @@ body {
 }
 .Navbar {
   grid-area: navbar;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: 1fr;
@@ -63,7 +66,7 @@ body {
 }
 .container-logo {
   grid-area: logo;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,24 +77,25 @@ body {
 }
 .nav-item-container {
   grid-area: item;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 15px;
+  gap: 45px;
 }
 .nav-item {
   font-weight: bold;
   list-style: none;
+  /* font-size: 20px; */
 }
 .nav-item a {
   text-decoration: none;
-  color: black;
+  color: whitesmoke;
 }
 .small-profile {
   grid-area: btn;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +104,7 @@ body {
 .prifile-content {
   width: 100%;
   height: 100%;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,7 +133,7 @@ body {
 }
 .home-container {
   grid-area: container;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,7 +152,7 @@ body {
   gap: 15px;
 }
 .header {
-  border: 1px solid;
+  /* border: 1px solid; */
   grid-area: header;
   display: flex;
   justify-content: center;
@@ -169,6 +173,11 @@ input {
   border-radius: 10px;
   font-size: 18px;
   height: 35px;
+  background-color: transparent;
+  color: black;
+}
+input::placeholder {
+  color: white;
 }
 .btn-container {
   border: 1px solid;
@@ -201,7 +210,7 @@ input {
 .Task-container {
   grid-area: container;
   margin: 10px;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: grid;
   grid-template-rows: repeat(10, 1fr);
   grid-template-columns: 1fr;
@@ -211,7 +220,7 @@ input {
 }
 .header-container {
   grid-area: header;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,7 +230,7 @@ input {
 }
 .Task-nav-links {
   grid-area: nav;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: 1fr;
@@ -229,7 +238,7 @@ input {
 }
 .nav-task {
   grid-area: nav;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -238,13 +247,15 @@ input {
 }
 .nav-task li {
   list-style: none;
+  color: white;
 }
 .nav-task li .links-task {
   text-decoration: none;
+  color: white;
 }
 .form-create-task {
   grid-area: form;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: grid;
   grid-template-columns: repeat(10.1fr);
   grid-template-rows: 1fr;
@@ -252,8 +263,9 @@ input {
 }
 .show-all-task {
   grid-area: form;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   overflow-y: scroll;
   gap: 15px;
   padding: 20px;
@@ -308,12 +320,18 @@ input {
 }
 .input-Task {
   padding: 10px;
+  color: white;
+}
+.input-Task::placeholder {
+  color: white;
 }
 .input-desX {
   width: 90%;
   height: 100%;
   resize: none;
   border-radius: 10px;
+  background-color: transparent;
+  color: white;
 }
 .input-desX::placeholder {
   text-align: start;
@@ -363,6 +381,7 @@ input {
   gap: 10px;
   padding: 10px;
   border: 1px solid;
+  border-radius: 10px;
 }
 .task-time {
   width: 100%;
