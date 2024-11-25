@@ -7,13 +7,7 @@ import LinkSection from "./LinkSection";
 import Button from "./Button";
 function Sidebar() {
   return (
-    <motion.div
-      className="Side-Bar-container"
-      variants={fadeIn("left", 1.5)}
-      initial="hidden"
-      whileInView={"show"}
-      viewport={{ once: false, amount: 0.9 }}
-    >
+    <motion.div className="Side-Bar-container">
       <Profile />
       <LinkSection />
       <div className="btn-section">

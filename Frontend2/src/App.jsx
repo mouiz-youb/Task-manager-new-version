@@ -16,13 +16,7 @@ function App() {
   const isAuthPage =
     location.pathname === "/signup" || location.pathname === "/login";
   return (
-    <motion.div
-      className={`app-container ${isAuthPage ? "auth-page" : ""}`}
-      variants={fadeIn("up", 0.5)}
-      initial="hidden"
-      whileInView={"show"}
-      viewport={{ once: false, amount: 0.9 }}
-    >
+    <div className={`app-container ${isAuthPage ? "auth-page" : ""}`}>
       <Toaster position="top-center" reverseOrder={false} />
       {!isAuthPage && <Sidebar />} {/* Hide Sidebar on signup and login */}
       <>
@@ -33,7 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
         </Routes>
       </>
-    </motion.div>
+    </div>
   );
 }
 
