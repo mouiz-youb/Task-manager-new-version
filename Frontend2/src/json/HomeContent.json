@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "image": "/images/task-manager.jpg",
+    "description": "Manage your daily tasks efficiently with our Task Manager App."
+  },
+  {
+    "id": 2,
+    "image": "/images/team-collaboration.jpg",
+    "description": "Collaborate with your team and stay productive."
+  },
+  {
+    "id": 3,
+    "image": "/images/track-progress.jpg",
+    "description": "Track your progress and achieve your goals faster."
+  }
+]

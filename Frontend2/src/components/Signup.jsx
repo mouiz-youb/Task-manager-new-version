@@ -6,7 +6,7 @@ function Signup() {
   return (
     <motion.div
       className="Signup-container"
-      variants={fadeIn("up", 0.5)}
+      variants={fadeIn("up", 0.2)}
       initial="hidden"
       whileInView={"show"}
       viewport={{ once: false, amount: 0.9 }}

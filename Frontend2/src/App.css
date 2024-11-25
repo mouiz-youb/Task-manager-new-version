@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   width: 100vw;
   height: 100vh;
@@ -32,6 +35,34 @@ body {
 .Home-container {
   grid-area: content;
   border: 1px solid;
+  /* overflow-y: scroll; */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-areas:
+    "title" "title" "content" "content" "content"
+    "content" "content" "content" "content" "content";
+}
+.home-title {
+  grid-area: title;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-content {
+  grid-area: content;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.home-line-content {
+  width: 90%;
+  height: 100%;
+  border: 1px solid;
 }
 /* ? The styling of the sidebar component  */
 .Side-Bar-container {
@@ -41,22 +72,78 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: repeat(10, 1fr);
   grid-template-areas:
-    "profile" "profile" "profile" "link" "link"
+    "profile" "profile" "profile" "profile" "link"
     "link" "link" "link" "btn" "btn";
   gap: 5px;
   padding: 5px;
 }
+/* ! profile styling */
 .profile-section {
   grid-area: profile;
   border: 1px solid;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-areas: "image" "image" "image" "content" "content";
 }
+.profile-image {
+  grid-area: image;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-container-for-profile {
+  width: 70%;
+  height: 75%;
+  border: 1px solid;
+  border-radius: 50px;
+}
+.profile-content {
+  grid-area: content;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* ! link seciton styling */
 .link-section {
   grid-area: link;
   border: 1px solid;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0px 10px;
 }
+.link-section li {
+  list-style: none;
+  text-transform: capitalize;
+}
+.links-item {
+  text-decoration: none;
+  color: black;
+}
+/* ! btn auth styling */
 .btn-section {
   grid-area: btn;
   border: 1px solid;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
+}
+.btn-section-auth {
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  font-size: 20px;
 }
 /* ? The styling of the signup component  */
 .Signup-container {

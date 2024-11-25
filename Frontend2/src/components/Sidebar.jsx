@@ -17,7 +17,8 @@ function Sidebar() {
       <Profile />
       <LinkSection />
       <div className="btn-section">
-        <Button />
+        <Button title="log in" to="/signup" />
+        <Button title="sign up" to="/login" />
       </div>
     </motion.div>
   );
