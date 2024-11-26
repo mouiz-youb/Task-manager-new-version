@@ -35,13 +35,16 @@ body {
 .Home-container {
   grid-area: content;
   border: 1px solid;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(10, 1fr);
   grid-template-areas:
     "title" "title" "content" "content" "content"
     "content" "content" "content" "content" "content";
+}
+.Home-container::-webkit-scrollbar {
+  display: none;
 }
 .home-title {
   grid-area: title;
@@ -57,13 +60,32 @@ body {
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 1fr;
   overflow-y: scroll;
-}
-.home-content ::-webkit-scrollbar {
-  display: none;
-}
-.lines-home {
-  border: 1px solid;
   /* height: 100vh; */
+  gap: 10px;
+  padding: 20px;
+}
+/* .home-content ::-webkit-scrollbar {
+  display: none;
+} */
+.lines-home {
+  /* border: 1px solid; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  height: 100vh;
+  gap: 20px;
+}
+.left-side {
+  height: 100%;
+  width: 100%;
+  border: 1px solid;
+  background-color: coral;
+}
+.right-side {
+  height: 100%;
+  width: 100%;
+  border: 1px solid;
+  background-color: violet;
 }
 /* ? The styling of the sidebar component  */
 .Side-Bar-container {
