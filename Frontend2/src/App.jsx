@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
 import { fadeIn } from "./hooks/variants";
 import Task from "./components/Task";
+import LastThreTask from "./components/LastThreTask";
 function App() {
   // Get the current route path
   const location = useLocation();
@@ -26,6 +27,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/task" element={<Task />} />
+          <Route path="/lastthreetask" element={<LastThreTask />} />
         </Routes>
       </>
     </div>

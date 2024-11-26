@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Button from "./Button";
 import { fadeIn } from "../hooks/variants";
-function TaskOne() {
+import Button from "./Button";
+function FullTask() {
   return (
     <motion.div
       variants={fadeIn("left", 0.2)}
@@ -12,7 +12,7 @@ function TaskOne() {
       viewport={{ once: false, amount: 0.9 }}
       className="task-one-container"
     >
-      <div className="task-one-header">title</div>
+      <div className="task-one-header-three"></div>
       <div className="task-one-description">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet fuga
         accusantium in omnis aperiam dicta impedit nostrum magnam delectus ex
@@ -33,4 +33,4 @@ function TaskOne() {
   );
 }
 
-export default TaskOne;
+export default FullTask;

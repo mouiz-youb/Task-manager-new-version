@@ -332,3 +332,18 @@ li {
 .update {
   background-color: blue;
 }
+/* ? last 3 task styling */
+.Last-Tasks-three {
+  grid-area: task;
+  border: 1px solid;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  gap: 20px;
+  padding: 10px;
+}
+.task-one-header-three {
+  grid-area: header;
+}
