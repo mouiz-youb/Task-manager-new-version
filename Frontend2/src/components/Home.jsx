@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../hooks/variants";
 import Descleft from "./Descleft";
 import Descright from "./Descright";
+import image1 from "../../public/image1.jpg";
 function Home() {
   return (
     <div className="Home-container">
@@ -17,7 +18,7 @@ function Home() {
       <div className="home-content">
         <div className="lines-home">
           <Descleft description="Our Task Manager helps you stay on top of your daily tasks and projects. Create, update, and track your tasks with ease. Organize your work using categories, set priorities, and never miss deadlines with our intuitive task management tools." />
-          <Descright />
+          <Descright path={image1} />
         </div>
         <div className="lines-home">
           <Descleft description="The Podcast Manager allows you to organize and listen to your favorite podcasts in one place. Subscribe to your preferred channels, track new episodes, and manage your podcast playlist effortlessly." />
@@ -25,7 +26,7 @@ function Home() {
         </div>
         <div className="lines-home">
           <Descleft description="Our Notification System ensures you never miss an update. Receive real-time alerts for task deadlines, podcast updates, and AI chat responses. Customize your notification preferences for a distraction-free experience." />
-          <Descright />
+          <Descright path="" />
         </div>
         <div className="lines-home">
           <Descleft description="The AI Chat assistant is your personal productivity companion. Ask questions, get suggestions, or receive guidance on your tasks. Powered by advanced AI, our chat assistant is always ready to help you stay productive." />

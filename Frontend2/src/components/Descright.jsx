@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../hooks/variants";
-function Descright() {
+function Descright(props) {
   return (
     <motion.div
       variants={fadeIn("right", 0.2)}
@@ -11,7 +11,7 @@ function Descright() {
       viewport={{ once: false, amount: 0.9 }}
       className="right-side"
     >
-      <h1>right side</h1>
+      {/* <img src={props.path} alt="" className="image-home-right-side" /> */}
     </motion.div>
   );
 }
