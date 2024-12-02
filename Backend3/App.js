@@ -11,6 +11,7 @@ const app = express();
 const UserRouters = UserRouter;
 const port = 3006;
 app.use(express.json());
+
 app.use("/api/user", UserRouters);
 app.get("/get", (req, res) => {
   res.send("hello world");
