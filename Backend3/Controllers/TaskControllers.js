@@ -1,4 +1,5 @@
 import Task from "../Models/Taskmodels.js";
+
 // create task router
 const CreateTask = async (req, res) => {
   const { title, descreption, time } = req.body;
@@ -9,6 +10,7 @@ const CreateTask = async (req, res) => {
         error: "Please fill the title and time ",
       });
     }
+    // const taskID = await generateTaskID();
     const task = await Task.create({
       title,
       descreption,
@@ -41,9 +43,37 @@ const GetAllTask = async (req, res) => {
   }
 };
 // delete task router
-const DeleteTask = async (req, res) => {};
+const DeleteTask = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const taskfound = await Task.findByIdAndDelete(id);
+    if (!taskfound) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+    return res
+      .status(200)
+      .json({ message: "Task deleted successfully", success: true, taskfound });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
 // update task router
-const UpdateTask = async (req, res) => {};
+const UpdateTask = async (req, res) => {
+  const { id } = req.params;
+  const updateTask = req.body;
+  try {
+    const taskfound = await Task.findByIdAndUpdate(id, updateTask, {
+      new: true,
+      runValidators: true,
+    });
+    if (!taskfound) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+    return res.status(200).json({ task: taskfound, success: true });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
 export default {
   CreateTask,
   GetAllTask,

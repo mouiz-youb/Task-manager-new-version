@@ -7,7 +7,7 @@ router.post("/createtask", CreateTask);
 // get all tasks router
 router.get("/getAll", GetAllTask);
 // delete task router
-router.delete("/deleteTask", DeleteTask);
+router.delete("/deleteTask/:id", DeleteTask);
 // update task router
-router.put("/updateTask", UpdateTask);
+router.put("/updateTask/:id", UpdateTask);
 export default router;
