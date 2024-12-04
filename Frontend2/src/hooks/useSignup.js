@@ -28,17 +28,6 @@ export const useSignup = () => {
       toast.success("Signup successful! Welcome to the platform!");
       navigate("/task");
     } catch (error) {
-      if (error.response) {
-        console.log("Error Response:", error.response);
-        setError(error.response.data?.error || "An unknown error occurred");
-        toast.error(
-          error.response?.data?.error || "Signup failed. Please try again."
-        );
-      } else {
-        console.log(`Error: ${error.message || "An unknown error occurred2"}`);
-        setError(`Error: ${error.message || "An unknown error occurred2"}`);
-        toast.error(error.message || "Signup failed. Please try again.");
-      }
     } finally {
       setIsloading(false);
     }

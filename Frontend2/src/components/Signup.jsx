@@ -34,6 +34,7 @@ function Signup() {
           animate={{
             rotate: [-15, 10],
             skewY: [-40, 40],
+            // translateX: -40,
           }}
           transition={{
             ease: "easeInOut",
@@ -59,7 +60,7 @@ function Signup() {
               placeholder="Enter the Username"
               onChange={(e) => setUsername(e.target.value)}
             />
-            <motion.p
+            <motion.input
               inputinitial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.75, ease: "easeIn", delay: 0.5 }}

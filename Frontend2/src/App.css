@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 html {
   scroll-behavior: smooth;
@@ -22,6 +23,7 @@ body {
   grid-template-columns: repeat(10, 1fr);
   gap: 10px;
   grid-template-areas: "sidebar sidebar content content content content content content content content";
+  background-color: #001c30;
 }
 /* ! the styling when we are inside the signup or the login components */
 .auth-page {
@@ -36,7 +38,7 @@ body {
 /* ? The styling of the home component  */
 .Home-container {
   grid-area: content;
-  border: 1px solid;
+  /* border: 1px solid; */
   overflow-y: scroll;
   display: grid;
   grid-template-columns: 1fr;
@@ -50,19 +52,19 @@ body {
 }
 .home-title {
   grid-area: title;
-  border: 1px solid;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 20px;
+  color: #176b87;
 }
 .home-title h2 {
   font-size: 50px;
 }
 .home-content {
   grid-area: content;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 1fr;
@@ -90,12 +92,15 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  border: 2px solid #64ccc5;
+  background-image: linear-gradient(-90deg, #64ccc5, #dafffb);
   /* background-color: coral; */
 }
 .left-side p {
   text-align: center;
   font-size: 16px;
   transform: rotatez(-35deg);
+  color: #001c30;
   /* background-color: red; */
 }
 .right-side {
@@ -105,6 +110,7 @@ body {
   background-color: #176b87;
   border-radius: 0px 180px;
   color: white;
+  border: 2px solid #64ccc5;
   /* background-image: url(../public/image1.jpg); */
 }
 .image-home-right-side {
@@ -125,11 +131,13 @@ body {
     "link" "link" "link" "btn" "btn";
   gap: 5px;
   padding: 5px;
+  /* background-color: #dafffb; */
+  background-image: linear-gradient(-90deg, #64ccc5, #dafffb);
 }
 /* ! profile styling */
 .profile-section {
   grid-area: profile;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: 1fr;
@@ -137,7 +145,7 @@ body {
 }
 .profile-image {
   grid-area: image;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,24 +153,26 @@ body {
 .image-container-for-profile {
   width: 70%;
   height: 75%;
-  border: 1px solid;
+  border: 1px solid #001c30;
   border-radius: 50px;
+  box-shadow: 0px 0px 5px 3px #176b87;
 }
 .profile-content {
   grid-area: content;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  color: #176b87;
 }
 
 /* ! link seciton styling */
 .link-section {
   grid-area: link;
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 20px;
@@ -171,18 +181,47 @@ body {
 .link-section li {
   list-style: none;
   text-transform: capitalize;
+  width: 100px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #001c30;
+  border-radius: 0px 15px;
+  transition: all 1s;
+}
+.link-section li:hover {
+  color: #001c30;
+  background-color: #64ccc5;
+  border-radius: 0px 15px;
 }
 .links-item {
   text-decoration: none;
-  color: black;
+  color: #176b87;
+  transition: all 1s;
+}
+/* todo the scrool bar backgound */
+::-webkit-scrollbar-track {
+  background: #64ccc5;
+  /* border-radius: 0px 15px; */
+}
+::-webkit-scrollbar-thumb {
+  background: #001c30;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  /* border-radius: 0px 15px; */
 }
 /* ! btn auth styling */
 .btn-section {
   grid-area: btn;
-  border: 1px solid;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   gap: 10px;
   padding: 10px;
 }
@@ -191,8 +230,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 0px 25px;
+  background-color: #001c30;
+  color: #64ccc5;
   font-size: 20px;
+  width: 100px;
+  height: 30px;
+  border: transparent;
+  transition: all 1s;
+  /* margin: 0px 50px; */
+}
+.btn-section-auth:hover {
+  background-color: #64ccc5;
+  color: #001c30;
 }
 /* ? The styling of the signup component  */
 .Signup-container {
@@ -220,6 +270,10 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 100;
+
+  /* background-color: red; */
+  margin: 0px 60px;
+  border-radius: 10px;
 }
 .after-form {
   content: "";
@@ -229,7 +283,7 @@ body {
   top: -5px;
   right: 0px;
   background-image: linear-gradient(180deg, #dafffb, #64ccc5);
-  transform: rotate(10deg) skewY(40deg);
+  transform: rotate(10deg) skewY(40deg) translateX(100px);
   transform-origin: bottom right;
   z-index: -1;
 }
@@ -365,6 +419,9 @@ input::placeholder {
     "task" "task" "task" "task" "task";
   overflow-y: scroll;
 }
+.Task-container::-webkit-scrollbar {
+  display: none;
+}
 /* ?the title task  */
 .title-of-task {
   grid-area: title;
@@ -373,6 +430,7 @@ input::placeholder {
   align-items: center;
   flex-direction: column;
   gap: 20px;
+  color: #176b87;
 }
 .title-of-task h2 {
   font-size: 50px;
@@ -411,9 +469,18 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 0px 20px;
+  background-color: #dafffb;
+  color: #001c30;
   font-size: 20px;
+  margin: 0px 20px;
+  transition: all 1s;
 }
+/* .btn-create-task:hover {
+  background-color: #176b87;
+  color: white;
+} */
+
 /* ?the task list */
 .Last-Tasks {
   grid-area: task;
@@ -431,6 +498,11 @@ li {
   grid-template-rows: repeat(10, 1fr);
   gap: 5px;
   border-radius: 15px;
+  box-shadow: 0px 0px 8px 3px #dafffb;
+  /* background-color: #64ccc5; */
+  background-image: linear-gradient(-90deg, #64ccc5, #dafffb);
+
+  color: #001c30a3;
   grid-template-areas:
     "header" "header" "descreption" "descreption" "descreption"
     "descreption" "descreption" "btn" "btn" "btn";
@@ -470,10 +542,10 @@ li {
   background-color: #dafffb;
 }
 .delete {
-  background-color: red;
+  background-color: #ff4c4c;
 }
 .update {
-  background-color: blue;
+  background-color: #4c8cff;
 }
 /* ? last 3 task styling */
 .Last-Tasks-three {

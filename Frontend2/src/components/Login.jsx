@@ -35,6 +35,7 @@ function Login() {
           animate={{
             rotate: [10, -15],
             skewY: [40, -40],
+            translateX: 20,
           }}
           transition={{
             ease: "easeInOut",
