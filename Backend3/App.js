@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import mongoose from "mongoose";
 import UserRouter from "./router/UserRouter.js";
 import TaskRouter from "./router/TaskRouter.js";
@@ -13,6 +14,7 @@ const UserRouters = UserRouter;
 const TaskRouters = TaskRouter;
 const port = 3006;
 app.use(express.json());
+app.use(cors);
 
 app.use("/api/user", UserRouters);
 app.use("/api/Task", TaskRouter);

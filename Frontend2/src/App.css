@@ -221,7 +221,7 @@ body {
   overflow: hidden;
   z-index: 100;
 }
-.signup-form::after {
+.after-form {
   content: "";
   width: 475px;
   height: 440px;
@@ -231,6 +231,18 @@ body {
   background-image: linear-gradient(180deg, #dafffb, #64ccc5);
   transform: rotate(10deg) skewY(40deg);
   transform-origin: bottom right;
+  z-index: -1;
+}
+.after-form2 {
+  content: "";
+  width: 475px;
+  height: 440px;
+  position: absolute;
+  /* top: -5px;
+  right: 0px; */
+  background-image: linear-gradient(180deg, #dafffb, #64ccc5);
+  transform-origin: bottom left;
+  transform: rotate(-15deg) skewY(-41deg) translateX(-20px);
   z-index: -1;
 }
 .left-side-signup-for {
@@ -325,6 +337,13 @@ input::placeholder {
   position: absolute;
   right: 0;
   top: 125px;
+}
+.left {
+  font-size: 20px;
+  width: 200px;
+  position: absolute;
+  left: 20px;
+  top: 130px;
 }
 /* ? The styling of the login component  */
 .login-container {
