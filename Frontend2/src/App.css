@@ -30,6 +30,8 @@ body {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  background-color: #001c30;
+  /* color: wheat; */
 }
 /* ? The styling of the home component  */
 .Home-container {
@@ -210,6 +212,119 @@ body {
 .signup-form {
   grid-area: form;
   border: 1px solid;
+  /* background-color: red; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  box-shadow: 0px 0px 7px 3px #dafffb;
+  position: relative;
+  overflow: hidden;
+  z-index: 100;
+}
+.signup-form::after {
+  content: "";
+  width: 475px;
+  height: 440px;
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  background-image: linear-gradient(180deg, #dafffb, #64ccc5);
+  transform: rotate(10deg) skewY(40deg);
+  transform-origin: bottom right;
+  z-index: -1;
+}
+.left-side-signup-for {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-areas:
+    "title" "title" "input" "input" "input"
+    "input" "input" "input" "btn" "btn";
+}
+/*  ! the FORM CONTENT */
+.header-form-auth {
+  grid-area: title;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #176b87;
+}
+.input-form-auth {
+  grid-area: input;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+input {
+  width: 200px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 20px 0px;
+  background-color: #dafffb;
+  color: #176b87;
+}
+input::placeholder {
+  color: #176b87;
+}
+.btn-form-auth {
+  grid-area: btn;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.if-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.if-section p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  color: #176b87;
+}
+.if-section p .link-form {
+  text-decoration: none;
+  color: #dafffb;
+}
+.btn-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  border-radius: 20px 0px;
+  background-color: #dafffb;
+  color: #176b87;
+  cursor: pointer;
+}
+.right-side-signup-for {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: center;
+  flex-direction: column;
+}
+.right-side-signup-for p:first-child {
+  font-size: 30px;
+  font-weight: bold;
+  width: 200px;
+  position: absolute;
+  top: 50px;
+}
+.right-side-signup-for .second-children {
+  font-size: 20px;
+  width: 200px;
+  position: absolute;
+  right: 0;
+  top: 125px;
 }
 /* ? The styling of the login component  */
 .login-container {
