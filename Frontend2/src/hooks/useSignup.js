@@ -6,12 +6,11 @@ export const useSignup = () => {
   const [error, setError] = useState(null);
   const [isloading, setIsloading] = useState(null);
   const navigate = useNavigate();
+  // the request function
   const signup = async (username, email, password) => {
     setIsloading(true);
     setError(null);
-    // {
-    //   isloading ? toast.loading(`is loading`) : "";
-    // }
+    const toastID = toast.loading(`is loading`);
     try {
       const response = await axios.post(
         "http://localhost:3006/api/user/signup",
@@ -21,6 +20,10 @@ export const useSignup = () => {
           password: password,
         }
       );
+      if (!response) {
+        toast.error("Failed to signup");
+      }
+      toast.dismiss(toastID);
       const userData = response.data.userData;
       const token = response.data.token;
       localStorage.setItem("token", JSON.stringify(token));
@@ -28,6 +31,9 @@ export const useSignup = () => {
       toast.success("Signup successful! Welcome to the platform!");
       navigate("/task");
     } catch (error) {
+      toast.dismiss(toastID);
+      setError(error.response?.data || "An error occurred");
+      toast.error(error.response?.data?.error || "Signup failed.");
     } finally {
       setIsloading(false);
     }

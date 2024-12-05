@@ -14,7 +14,7 @@ const UserRouters = UserRouter;
 const TaskRouters = TaskRouter;
 const port = 3006;
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 
 app.use("/api/user", UserRouters);
 app.use("/api/Task", TaskRouter);

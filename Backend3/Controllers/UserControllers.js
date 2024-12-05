@@ -24,7 +24,7 @@ const Signup = async (req, res) => {
       userData,
     });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    return res.status(400).json({ error: error.message || "Signup failed" });
   }
 };
 const Login = async (req, res) => {

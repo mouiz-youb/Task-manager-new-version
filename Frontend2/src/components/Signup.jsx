@@ -4,22 +4,22 @@ import { fadeIn } from "../hooks/variants";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useSignup } from "../hooks/useSignup";
+import { toast } from "react-hot-toast";
 function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signup, isloading, error } = useSignup();
 
-  const handelSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = {
-      username,
-      email,
-      password,
-    };
-    console.log(user);
+    if (!username || !email || !password) {
+      toast.error("All fields are required.");
+      return;
+    }
     await signup(username, email, password);
   };
+
   return (
     <motion.div
       className="Signup-container"
@@ -28,12 +28,12 @@ function Signup() {
       whileInView={"show"}
       viewport={{ once: false, amount: 0.9 }}
     >
-      <form className="signup-form" onSubmit={handelSubmit}>
+      <form className="signup-form" onSubmit={handleSubmit}>
         <motion.div
           className="after-form"
           animate={{
-            rotate: [-15, 10],
-            skewY: [-40, 40],
+            rotate: [-15, 0, 10],
+            skewY: [-40, 0, 40],
             // translateX: -40,
           }}
           transition={{
@@ -61,7 +61,7 @@ function Signup() {
               onChange={(e) => setUsername(e.target.value)}
             />
             <motion.input
-              inputinitial={{ opacity: 0, x: -40 }}
+              initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.75, ease: "easeIn", delay: 0.5 }}
               type="email"

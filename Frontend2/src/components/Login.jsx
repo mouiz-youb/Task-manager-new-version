@@ -33,8 +33,8 @@ function Login() {
       <form className="signup-form" onSubmit={handelSubmit}>
         <motion.div
           animate={{
-            rotate: [10, -15],
-            skewY: [40, -40],
+            rotate: [10, 0, -15],
+            skewY: [40, 0, -40],
             translateX: 20,
           }}
           transition={{

@@ -10,6 +10,9 @@ function Descright(props) {
       transition={{ duration: 2 }}
       viewport={{ once: false, amount: 0.9 }}
       className="right-side"
+      style={{
+        backgroundImage: `url(${props.path})`,
+      }}
     >
       {/* <img src={props.path} alt="" className="image-home-right-side" /> */}
     </motion.div>
