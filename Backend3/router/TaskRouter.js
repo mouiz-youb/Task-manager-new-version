@@ -1,6 +1,9 @@
 import express from "express";
+import requireAuth from "../middleware/requireAuth.js";
+
 import TaskControllers from "../Controllers/TaskControllers.js";
 const router = express.Router();
+router.use(requireAuth);
 const { CreateTask, GetAllTask, DeleteTask, UpdateTask } = TaskControllers;
 // create task router
 router.post("/createtask", CreateTask);
