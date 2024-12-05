@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Button(props) {
+function Button({ title, className, to, onClick }) {
   return (
-    <div className={`${props.className}`}>
-      <Link className="links-item" to={`${props.to}`}>
-        {props.title}
+    <div className={`${className}`}>
+      <Link className="links-item" to={`${to}`} onClick={onClick}>
+        {title}
       </Link>
     </div>
   );

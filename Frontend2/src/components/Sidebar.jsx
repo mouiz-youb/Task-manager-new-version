@@ -12,11 +12,10 @@ function Sidebar() {
   // const user = useUser((state) => state.user);
   const token = useUser((state) => state.token);
   useInitializeAuth();
+  const Logout = useLogout();
   const logoutBtn = () => {
-    const { logout } = useLogout();
-    logout();
+    Logout();
   };
-  console.log(token);
 
   return (
     <motion.div
@@ -30,9 +29,14 @@ function Sidebar() {
       <LinkSection />
       <div className="btn-section">
         {token ? (
-          <Button title="log out" to="/" className="btn-section-auth" />
+          <Button
+            title="log out"
+            to="/"
+            className="btn-section-auth"
+            onClick={logoutBtn}
+          />
         ) : (
-          <div>
+          <div className="btn-section">
             <Button title="log in" to="/login" className="btn-section-auth" />
             <Button title="sign up" to="/singup" className="btn-section-auth" />
           </div>
