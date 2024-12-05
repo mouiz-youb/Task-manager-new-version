@@ -16,7 +16,12 @@ function Sidebar() {
   const logoutBtn = () => {
     Logout();
   };
-
+  const SignupGoing = () => {
+    window.location.href = "/signup";
+  };
+  const LogninGoing = () => {
+    window.location.href = "/login";
+  };
   return (
     <motion.div
       variants={fadeIn("up", 0.2)}
@@ -37,8 +42,18 @@ function Sidebar() {
           />
         ) : (
           <div className="btn-section">
-            <Button title="log in" to="/login" className="btn-section-auth" />
-            <Button title="sign up" to="/singup" className="btn-section-auth" />
+            <Button
+              title="log in"
+              to="/login"
+              className="btn-section-auth"
+              onClick={SignupGoing}
+            />
+            <Button
+              title="sign up"
+              to="/singup"
+              className="btn-section-auth"
+              onClick={LogninGoing}
+            />
           </div>
         )}
         {/* <Button title="log in" to="/login" className="btn-section-auth" />

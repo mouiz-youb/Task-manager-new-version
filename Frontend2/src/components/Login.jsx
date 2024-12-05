@@ -2,23 +2,22 @@ import React, { useState } from "react";
 import "../App.css";
 import { fadeIn } from "../hooks/variants";
 import { motion } from "framer-motion";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { useSignup } from "../hooks/useSignup";
+import { useLogin } from "../hooks/useLogin.js";
 function Login() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signup, isloading, error } = useSignup();
+  const { Login, isloading, error } = useLogin();
   const [click, setClick] = useState(false);
-  const handelSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = {
-      username,
-      email,
-      password,
-    };
-    console.log(user);
-    await signup(username, email, password);
+    if (!email || !password) {
+      toast.error("All fields are required.");
+      return;
+    }
+    await Login(email, password);
   };
   // transform-origin: bottom left;
   //   transform: rotate(-15deg) skewY(-41deg) translateX(-20px);
@@ -30,7 +29,7 @@ function Login() {
       whileInView={"show"}
       viewport={{ once: false, amount: 0.9 }}
     >
-      <form className="signup-form" onSubmit={handelSubmit}>
+      <form className="signup-form" onSubmit={handleSubmit}>
         <motion.div
           animate={{
             rotate: [10, 0, -15],

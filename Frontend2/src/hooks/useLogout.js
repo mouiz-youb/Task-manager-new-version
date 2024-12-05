@@ -7,7 +7,7 @@ export const useLogout = () => {
   const Logout = async () => {
     // remove the userdata and the token from the local storage
     localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    localStorage.removeItem("userData");
     logout();
     // redirect to the home page
     navigate("/");
