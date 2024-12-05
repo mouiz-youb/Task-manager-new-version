@@ -1,9 +1,9 @@
 import React from "react";
 import "../App.css";
-function Image() {
+function Image(props) {
   return (
     <div className="image-container-for-profile">
-      <h1></h1>
+      {/* <img src={props.url} alt="" /> */}
     </div>
   );
 }
