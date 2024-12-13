@@ -5,12 +5,12 @@ import Button from "./Button";
 import { CiMenuKebab } from "react-icons/ci";
 function FullTask() {
   const [viseble, setViseble] = useState(false);
-  const [taskColor, setTaskColor] = useState([]);
+  const [taskStatus, setTaskStatus] = useState("");
   const toggleVisibility = () => {
     setViseble((prev) => !prev); // Toggles between true and false
   };
-  const changeColor = (color) => {
-    setTaskColor(color);
+  const changeStatus = (taskStatus) => {
+    setTaskStatus(taskStatus);
     setViseble(false); // Hide the menu after selection
   };
   return (
@@ -21,16 +21,19 @@ function FullTask() {
       transition={{ duration: 2 }}
       viewport={{ once: false, amount: 0.9 }}
       className="task-one-container"
-      style={{ backgroundColor: taskColor }}
     >
       <div className="task-one-header-three">
         <h2 className="title-full-task">Full Task</h2>
+
+        <p className={taskStatus ? `status-full-task` : `hide-status`}>
+          {taskStatus ? taskStatus : null}
+        </p>
         <CiMenuKebab className="icon-full-task" onClick={toggleVisibility} />
         {viseble && (
           <div className="visibel">
-            <p onClick={() => changeColor("orange")}>to do</p>
-            <p onClick={() => changeColor("green")}>on going</p>
-            <p onClick={() => changeColor("skyblue")}>done</p>
+            <p onClick={() => changeStatus("to do")}>to do</p>
+            <p onClick={() => changeStatus("on going")}>on going</p>
+            <p onClick={() => changeStatus("done")}>done</p>
           </div>
         )}
       </div>

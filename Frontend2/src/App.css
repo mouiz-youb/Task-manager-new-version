@@ -577,7 +577,23 @@ li {
   grid-template-rows: 1fr;
   padding: 5px 0px;
   position: relative;
-  grid-template-areas: ". title title title . . . . . icon";
+  grid-template-areas: ". title title title . . . status . icon";
+}
+.status-full-task {
+  grid-area: status;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: wheat;
+  box-shadow: 0px 0px 4px 2px wheat;
+  border-radius: 10px;
+  background: #001c30;
+}
+.hide-status {
+  display: none;
 }
 .title-full-task {
   grid-area: title;
@@ -597,7 +613,7 @@ li {
   flex-direction: column;
   gap: 10px;
   padding: 10px;
-  border: 1px solid;
+  border: 2px solid wheat;
   position: absolute;
   width: 100px;
   height: 120px;
@@ -607,7 +623,84 @@ li {
   background-color: #176b87;
   text-transform: capitalize;
   border-radius: 20px;
+  color: wheat;
 }
 .visibel p {
   cursor: pointer;
 }
+/* ?all task page styling */
+.All-task-page {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-areas:
+    "header" "nav" "list" "list" "list"
+    "list" "list" "list" "list" "list";
+  gap: 10px;
+  overflow-y: scroll;
+}
+.All-task-page::-webkit-scrollbar {
+  display: none;
+}
+.task-list-header {
+  grid-area: header;
+  border: 1px solid wheat;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-areas: "left left . . . . . . right right";
+}
+.task-list-header-left {
+  grid-area: left;
+  border: 1px solid wheat;
+  color: #dafffb;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.task-list-header-right {
+  grid-area: right;
+  border: 1px solid wheat;
+  color: #dafffb;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.task-list-nav-x {
+  grid-area: nav;
+  border: 1px solid wheat;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+.task-list-nav-x .link {
+  text-decoration: none;
+  color: wheat;
+}
+.task-list {
+  grid-area: list;
+  border: 1px solid wheat;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  gap: 30px;
+  padding: 20px;
+}
+/* grid-area: task;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow-y: scroll;
+  gap: 20px;
+  padding: 10px; */

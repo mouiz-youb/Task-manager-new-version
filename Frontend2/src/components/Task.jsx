@@ -24,9 +24,9 @@ function Task() {
           viewport={{ once: false, amount: 0.9 }}
           className="nav-bar-task-left"
         >
-          <Links to="/" title="all task" />
+          <Links to="/alltask" title="all task" />
           <Links to="/" title="remider" />
-          <Links to="/" title="last 3 task" />
+          <Links to="/lastthreetask" title="last 3 task" />
         </motion.ul>
         <motion.div
           variants={fadeIn("down", 0.2)}

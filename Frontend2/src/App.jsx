@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "./hooks/variants";
 import Task from "./components/Task";
 import LastThreTask from "./components/LastThreTask";
+import AllTask from "./components/AllTask";
 function App() {
   // Get the current route path
   const location = useLocation();
@@ -28,6 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/task" element={<Task />} />
           <Route path="/lastthreetask" element={<LastThreTask />} />
+          <Route path="/alltask" element={<AllTask />} />
         </Routes>
       </>
     </div>
