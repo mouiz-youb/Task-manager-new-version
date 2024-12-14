@@ -643,16 +643,33 @@ li {
 .All-task-page::-webkit-scrollbar {
   display: none;
 }
-.task-list-header {
+.task-list-header-container {
   grid-area: header;
-  border: 1px solid wheat;
+  /* border: 1px solid wheat; */
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-areas: "left left . . . . . . right right";
 }
+.task-list-header {
+  grid-area: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  /* gap: 5px; */
+}
+.task-list-header-link-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow {
+  font-size: 30px;
+  color: #dafffb;
+}
 .task-list-header-left {
   grid-area: left;
-  border: 1px solid wheat;
+  /* border: 1px solid wheat; */
   color: #dafffb;
   text-decoration: none;
   display: flex;
@@ -664,7 +681,6 @@ li {
 }
 .task-list-header-right {
   grid-area: right;
-  border: 1px solid wheat;
   color: #dafffb;
   text-decoration: none;
   display: flex;
@@ -676,7 +692,7 @@ li {
 }
 .task-list-nav-x {
   grid-area: nav;
-  border: 1px solid wheat;
+  /* border: 1px solid wheat; */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -688,7 +704,6 @@ li {
 }
 .task-list {
   grid-area: list;
-  border: 1px solid wheat;
   overflow-y: scroll;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -697,10 +712,134 @@ li {
   gap: 30px;
   padding: 20px;
 }
-/* grid-area: task;
-  overflow-x: hidden;
+/* ? create-task-form styling */
+.create-task-form {
+  border: 1px solid wheat;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+    ". . . . ."
+    ". form form form ."
+    ". form form form ."
+    ". form form form ."
+    ". . . . .";
+  background-image: url(../public/image1.webp);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.form-create-task {
+  grid-area: form;
+  /* border: 1px solid wheat; */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-areas:
+    "header" "header" "input" "input" "input"
+    "input" "input" "input" "btn" "btn";
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  box-shadow: 0px 0px 7px 7px #dafffb;
+  border-radius: 20px;
+  background-image: linear-gradient(
+    135deg,
+    rgb(255, 255, 255, 0.1),
+    rgb(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.after-form3 {
+  content: "";
+  width: 475px;
+  height: 440px;
+  position: absolute;
+  background-image: linear-gradient(rgb(218, 255, 251), rgb(100, 204, 197));
+  transform-origin: left bottom;
+  transform: rotate(-10deg) skewY(-40deg);
+  z-index: -1;
+}
+.after-form4 {
+  content: "";
+  width: 475px;
+  height: 440px;
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  background-image: linear-gradient(rgb(218, 255, 251), rgb(100, 204, 197));
+  transform-origin: bottom right;
+  transform: rotate(10deg) skewY(40deg);
+  z-index: -1;
+}
+.header-create-task {
+  /* border: 1px solid wheat; */
+  grid-area: header;
+  text-transform: capitalize;
+  color: #001c30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.header-create-task h1 {
+  font-size: 45px;
+}
+.section-input-create-task {
+  /* border: 1px solid wheat; */
+  grid-area: input;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  overflow-y: scroll;
+}
+.input-section-fields {
+  /* border: 1px solid wheat; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
   gap: 20px;
-  padding: 10px; */
+}
+.description-section-fields {
+  /* border: 1px solid wheat; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+textarea {
+  resize: none;
+  background-color: #dafffb;
+  color: #176b87;
+  padding: 10px;
+  border-radius: 20px;
+  width: 80%;
+  height: 80%;
+  font-size: 20px;
+}
+textarea::placeholder {
+  color: #176b87;
+}
+.input-create-task {
+  background-color: #dafffb;
+  color: #176b87;
+  width: 250px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 20px;
+  padding: 10px;
+}
+.section-btn-create-task {
+  /* border: 1px solid wheat; */
+  grid-area: btn;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section-btn-create-task button {
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  cursor: pointer;
+}

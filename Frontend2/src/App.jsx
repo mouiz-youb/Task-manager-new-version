@@ -11,13 +11,16 @@ import { fadeIn } from "./hooks/variants";
 import Task from "./components/Task";
 import LastThreTask from "./components/LastThreTask";
 import AllTask from "./components/AllTask";
+import CreateTask from "./components/CreateTask";
 function App() {
   // Get the current route path
   const location = useLocation();
 
   // Check if the current route is for login or signup
   const isAuthPage =
-    location.pathname === "/signup" || location.pathname === "/login";
+    location.pathname === "/signup" ||
+    location.pathname === "/login" ||
+    location.pathname === "/createtask";
   return (
     <div className={`app-container ${isAuthPage ? "auth-page" : ""}`}>
       <Toaster position="top-center" reverseOrder={false} />
@@ -30,6 +33,7 @@ function App() {
           <Route path="/task" element={<Task />} />
           <Route path="/lastthreetask" element={<LastThreTask />} />
           <Route path="/alltask" element={<AllTask />} />
+          <Route path="/createtask" element={<CreateTask />} />
         </Routes>
       </>
     </div>
