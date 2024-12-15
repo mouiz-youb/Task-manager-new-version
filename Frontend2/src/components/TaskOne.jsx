@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Button from "./Button";
 import { fadeIn } from "../hooks/variants";
-function TaskOne() {
+function TaskOne(props) {
   return (
     <motion.div
       variants={fadeIn("left", 0.2)}
@@ -12,20 +12,15 @@ function TaskOne() {
       viewport={{ once: false, amount: 0.9 }}
       className="task-one-container"
     >
-      <div className="task-one-header">title</div>
-      <div className="task-one-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet fuga
-        accusantium in omnis aperiam dicta impedit nostrum magnam delectus ex
-        veniam neque pariatur minima dolor inventore deserunt voluptas, quis
-        hic.
-      </div>
+      <div className="task-one-header">{props.title}</div>
+      <div className="task-one-description">{props.description}</div>
       <div className="task-one-btn">
         <Button
           title="full task"
           to="/lastthreetask"
           className="btn-of-one-task full"
         />
-        <p>Time</p>
+        <p>{props.time}</p>
         <Button title="Update" to="/" className="btn-of-one-task update" />
         <Button title="delete" to="/" className="btn-of-one-task delete" />
       </div>

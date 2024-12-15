@@ -817,6 +817,7 @@ textarea {
   width: 80%;
   height: 80%;
   font-size: 20px;
+  /* transition-timing-function: ; */
 }
 textarea::placeholder {
   color: #176b87;

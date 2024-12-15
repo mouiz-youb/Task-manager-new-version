@@ -5,7 +5,10 @@ import TaskOne from "./TaskOne";
 import { motion } from "framer-motion";
 import { fadeIn } from "../hooks/variants.js";
 import { IoIosArrowBack } from "react-icons/io";
+import { useInitTask } from "../hooks/useInitTask.js";
 function AllTask() {
+  const task = useInitTask();
+  // console.log("helllo");
   return (
     <div className="All-task-page">
       <div className="task-list-header-container">
@@ -41,14 +44,18 @@ function AllTask() {
         <Link className="link">home</Link>
       </ul>
       <div className="task-list">
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
+        {task.task.length > 0 ? (
+          task.task.map((task) => (
+            <TaskOne
+              key={task._id}
+              title={task.title}
+              description={task.description}
+              time={task.time}
+            />
+          ))
+        ) : (
+          <p>No task available</p>
+        )}
       </div>
     </div>
   );

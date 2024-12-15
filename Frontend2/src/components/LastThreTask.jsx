@@ -7,7 +7,9 @@ import Title from "./Title";
 import Links from "./Links";
 import TaskOne from "./TaskOne";
 import FullTask from "./FullTask";
+import { useInitTask } from "../hooks/useInitTask";
 function LastThreTask() {
+  const task = useInitTask();
   return (
     <div className="Task-container">
       <div className="title-of-task">
@@ -40,9 +42,18 @@ function LastThreTask() {
         </motion.div>
       </div>
       <div className="Last-Tasks-three">
-        <FullTask />
-        <FullTask />
-        <FullTask />
+        {task.task.length > 0 ? (
+          task.task.map((task) => (
+            <FullTask
+              key={task._id}
+              title={task.title}
+              description={task.description}
+              time={task.time}
+            />
+          ))
+        ) : (
+          <p>No task available</p>
+        )}
       </div>
     </div>
   );

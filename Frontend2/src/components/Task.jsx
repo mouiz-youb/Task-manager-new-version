@@ -6,7 +6,9 @@ import Title from "./Title";
 import Links from "./Links";
 import Button from "./Button";
 import TaskOne from "./TaskOne";
+import { useInitTask } from "../hooks/useInitTask";
 function Task() {
+  const task = useInitTask();
   return (
     <div className="Task-container">
       <div className="title-of-task">
@@ -39,14 +41,18 @@ function Task() {
         </motion.div>
       </div>
       <div className="Last-Tasks">
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
-        <TaskOne />
+        {task.task.length > 0 ? (
+          task.task.map((task) => (
+            <TaskOne
+              key={task._id}
+              title={task.title}
+              description={task.description}
+              time={task.time}
+            />
+          ))
+        ) : (
+          <p>No task available</p>
+        )}
       </div>
     </div>
   );

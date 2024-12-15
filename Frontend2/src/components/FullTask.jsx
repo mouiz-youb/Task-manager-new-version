@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../hooks/variants";
 import Button from "./Button";
 import { CiMenuKebab } from "react-icons/ci";
-function FullTask() {
+function FullTask(props) {
   const [viseble, setViseble] = useState(false);
   const [taskStatus, setTaskStatus] = useState("");
   const toggleVisibility = () => {
@@ -23,7 +23,7 @@ function FullTask() {
       className="task-one-container"
     >
       <div className="task-one-header-three">
-        <h2 className="title-full-task">Full Task</h2>
+        <h2 className="title-full-task">{props.title}</h2>
 
         <p className={taskStatus ? `status-full-task` : `hide-status`}>
           {taskStatus ? taskStatus : null}
@@ -37,19 +37,14 @@ function FullTask() {
           </div>
         )}
       </div>
-      <div className="task-one-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet fuga
-        accusantium in omnis aperiam dicta impedit nostrum magnam delectus ex
-        veniam neque pariatur minima dolor inventore deserunt voluptas, quis
-        hic.
-      </div>
+      <div className="task-one-description">{props.description}</div>
       <div className="task-one-btn">
         {/* <Button
           title="full task"
           to="/lastthreetask"
           className="btn-of-one-task full"
         /> */}
-        <p>Time</p>
+        <p>{props.time}</p>
         <Button title="Update" to="/" className="btn-of-one-task update" />
         <Button title="delete" to="/" className="btn-of-one-task delete" />
       </div>
