@@ -2,7 +2,7 @@ import Task from "../Models/Taskmodels.js";
 
 // create task router
 const CreateTask = async (req, res) => {
-  const { title, descreption, time } = req.body;
+  const { title, description, time } = req.body;
   console.log(req.body);
   try {
     if (!title || !time) {
@@ -13,7 +13,7 @@ const CreateTask = async (req, res) => {
     // const taskID = await generateTaskID();
     const task = await Task.create({
       title,
-      descreption,
+      description,
       time,
     });
     return res.status(201).json({

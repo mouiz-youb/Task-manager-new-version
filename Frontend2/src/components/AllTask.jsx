@@ -54,7 +54,14 @@ function AllTask() {
             />
           ))
         ) : (
-          <p>No task available</p>
+          <p
+            style={{
+              fontSize: "20px",
+              color: "wheat",
+            }}
+          >
+            No task available
+          </p>
         )}
       </div>
     </div>

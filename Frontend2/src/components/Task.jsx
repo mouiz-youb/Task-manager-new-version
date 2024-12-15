@@ -37,7 +37,11 @@ function Task() {
           viewport={{ once: false, amount: 0.9 }}
           className="nav-bar-task-right"
         >
-          <Button to="/" title="create task" className="btn-create-task" />
+          <Button
+            to="/createtask"
+            title="create task"
+            className="btn-create-task"
+          />
         </motion.div>
       </div>
       <div className="Last-Tasks">
@@ -51,7 +55,14 @@ function Task() {
             />
           ))
         ) : (
-          <p>No task available</p>
+          <p
+            style={{
+              fontSize: "20px",
+              color: "wheat",
+            }}
+          >
+            No task available
+          </p>
         )}
       </div>
     </div>

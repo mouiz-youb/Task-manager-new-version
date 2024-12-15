@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import { motion } from "framer-motion";
-import { useCreateTask } from "../hooks/useCreatetask";
+import { useCreateTask } from "../hooks/useCreatetask.js";
 function CreateTask() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -46,6 +46,7 @@ function CreateTask() {
               placeholder="Enter the date"
             />
           </div>
+          {console.log(description)}
           <div className="description-section-fields">
             <motion.textarea
               onChange={(e) => setDescription(e.target.value)}
