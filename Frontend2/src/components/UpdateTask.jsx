@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useUpdateTask } from "../hooks/useUpdateTask.js";
+import axios from "axios";
 function UpdateTask() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -14,6 +15,26 @@ function UpdateTask() {
     description: description,
     time: time,
   };
+  useEffect(() => {
+    const fetchTask = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3006/api/Task/gettask/${id}`
+        );
+        const { title, description, time } = response.data.taskfound;
+        //   set the state of the fetched data
+        setTitle(title || "");
+        setDescription(description || "");
+        setTime(time || "");
+      } catch (error) {
+        console.error(
+          "Error fetching task details:",
+          error.response.data.error
+        );
+      }
+    };
+    fetchTask();
+  }, [id]);
   const handleCreateTask = async (e) => {
     e.preventDefault();
     await updateTask(id, task);

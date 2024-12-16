@@ -62,14 +62,43 @@ const UpdateTask = async (req, res) => {
   const { id } = req.params;
   const updateTask = req.body;
   try {
-    const taskfound = await Task.findByIdAndUpdate(id, updateTask, {
+    // find the existing task
+    const existingTask = await Task.findById(id);
+    if (!existingTask) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+    // check for unchanged fields
+    let hasUpdates = false;
+    for (const key in updateTask) {
+      if (updateTask[key] !== existingTask[key]) {
+        hasUpdates = true;
+        break;
+      }
+    }
+    console.log(hasUpdates);
+    if (!hasUpdates) {
+      return res.status(400).json({ message: "No fields were updated." });
+    }
+    // merge the existing task data with the new updates
+    const updatedData = { ...existingTask._doc, ...updateTask };
+    const taskfound = await Task.findByIdAndUpdate(id, updatedData, {
       new: true,
       runValidators: true,
     });
+    return res.status(200).json({ Tasks: taskfound, success: true });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+const GetOneTask = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const taskfound = await Task.findById(id);
+    // check if this task existed
     if (!taskfound) {
       return res.status(404).json({ message: "Task not found" });
     }
-    return res.status(200).json({ task: updateTask, success: true });
+    return res.status(200).json({ taskfound, success: true });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -79,4 +108,5 @@ export default {
   GetAllTask,
   DeleteTask,
   UpdateTask,
+  GetOneTask,
 };

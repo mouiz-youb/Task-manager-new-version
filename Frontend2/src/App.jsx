@@ -24,7 +24,7 @@ function App() {
     location.pathname === "/signup" ||
     location.pathname === "/login" ||
     location.pathname === "/createtask" ||
-    location.pathname === "/updatetask/:id";
+    location.pathname.startsWith("/updatetask/");
   return (
     <div className={`app-container ${isAuthPage ? "auth-page" : ""}`}>
       <Toaster position="top-center" reverseOrder={false} />

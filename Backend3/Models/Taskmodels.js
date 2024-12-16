@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const TaskSchema = new Schema({
   title: {
     type: String,
-    required: true,
+    required: false,
   },
   description: {
     type: String,
@@ -18,7 +18,7 @@ const TaskSchema = new Schema({
   time: {
     type: Date,
     default: Date.now,
-    required: true,
+    required: false,
   },
 });
 

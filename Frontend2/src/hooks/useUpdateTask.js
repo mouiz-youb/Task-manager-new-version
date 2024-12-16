@@ -15,11 +15,9 @@ export const useUpdateTask = () => {
     try {
       const response = await axios.put(
         `http://localhost:3006/api/Task/updateTask/${_id}`,
-        {
-          task: task,
-        }
+        task
       );
-      if (response.status === 200) {
+      if (response.status === 200 && response.data.success) {
         toast.success("Task updated successfully");
         navigate("/alltask");
       }
