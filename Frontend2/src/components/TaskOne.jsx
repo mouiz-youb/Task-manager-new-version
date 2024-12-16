@@ -2,7 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import Button from "./Button";
 import { fadeIn } from "../hooks/variants";
+import { useDeletingTask } from "../hooks/useDeletingTask.js";
 function TaskOne(props) {
+  const { deleteTask, isloading } = useDeletingTask();
+  const handleDelete = async () => {
+    if (window.confirm("Are you sure you want to delete this task?")) {
+      await deleteTask(props._id);
+    }
+  };
   return (
     <motion.div
       variants={fadeIn("left", 0.2)}
@@ -28,7 +35,8 @@ function TaskOne(props) {
         />
         <Button
           title="delete"
-          to={`/tests/${props._id}`}
+          disabled={isloading}
+          onClick={handleDelete}
           className="btn-of-one-task delete"
         />
       </div>
