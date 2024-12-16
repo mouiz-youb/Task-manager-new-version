@@ -844,3 +844,8 @@ textarea::placeholder {
   border-radius: 20px;
   cursor: pointer;
 }
+/* ! testing styling ------------------*/
+.test {
+  color: wheat;
+}
+/* ! -------------------------------- */

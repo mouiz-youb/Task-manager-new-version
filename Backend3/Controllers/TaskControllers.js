@@ -69,7 +69,7 @@ const UpdateTask = async (req, res) => {
     if (!taskfound) {
       return res.status(404).json({ message: "Task not found" });
     }
-    return res.status(200).json({ task: taskfound, success: true });
+    return res.status(200).json({ task: updateTask, success: true });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

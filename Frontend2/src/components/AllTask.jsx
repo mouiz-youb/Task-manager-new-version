@@ -51,6 +51,7 @@ function AllTask() {
               title={task.title}
               description={task.description}
               time={task.time}
+              _id={task._id}
             />
           ))
         ) : (

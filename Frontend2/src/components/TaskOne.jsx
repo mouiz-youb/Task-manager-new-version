@@ -21,8 +21,16 @@ function TaskOne(props) {
           className="btn-of-one-task full"
         />
         <p>{props.time}</p>
-        <Button title="Update" to="/" className="btn-of-one-task update" />
-        <Button title="delete" to="/" className="btn-of-one-task delete" />
+        <Button
+          title="Update"
+          to={`/updatetask/${props._id}`}
+          className="btn-of-one-task update"
+        />
+        <Button
+          title="delete"
+          to={`/tests/${props._id}`}
+          className="btn-of-one-task delete"
+        />
       </div>
     </motion.div>
   );

@@ -52,6 +52,7 @@ function Task() {
               title={task.title}
               description={task.description}
               time={task.time}
+              _id={task._id}
             />
           ))
         ) : (
@@ -64,6 +65,7 @@ function Task() {
             No task available
           </p>
         )}
+        {/* {console.log(task.task[0]._id)} */}
       </div>
     </div>
   );

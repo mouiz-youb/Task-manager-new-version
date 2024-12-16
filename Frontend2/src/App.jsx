@@ -12,6 +12,9 @@ import Task from "./components/Task";
 import LastThreTask from "./components/LastThreTask";
 import AllTask from "./components/AllTask";
 import CreateTask from "./components/CreateTask";
+import Test from "./components/Test";
+import TestList from "./components/TestList";
+import UpdateTask from "./components/UpdateTask";
 function App() {
   // Get the current route path
   const location = useLocation();
@@ -20,7 +23,8 @@ function App() {
   const isAuthPage =
     location.pathname === "/signup" ||
     location.pathname === "/login" ||
-    location.pathname === "/createtask";
+    location.pathname === "/createtask" ||
+    location.pathname === "/updatetask/:id";
   return (
     <div className={`app-container ${isAuthPage ? "auth-page" : ""}`}>
       <Toaster position="top-center" reverseOrder={false} />
@@ -34,6 +38,9 @@ function App() {
           <Route path="/lastthreetask" element={<LastThreTask />} />
           <Route path="/alltask" element={<AllTask />} />
           <Route path="/createtask" element={<CreateTask />} />
+          <Route path="/updatetask/:id" element={<UpdateTask />} />
+          <Route path="/testlist/" element={<TestList />} />
+          <Route path="/tests/:id" element={<Test />} />
         </Routes>
       </>
     </div>
