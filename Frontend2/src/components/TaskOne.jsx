@@ -1,15 +1,58 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { toast } from "react-hot-toast";
 import Button from "./Button";
 import { fadeIn } from "../hooks/variants";
 import { useDeletingTask } from "../hooks/useDeletingTask.js";
+import { useNavigate } from "react-router-dom";
 function TaskOne(props) {
   const { deleteTask, isloading } = useDeletingTask();
+  const id = props._id;
+  const Navigate = useNavigate();
   const handleDelete = async () => {
-    if (window.confirm("Are you sure you want to delete this task?")) {
-      await deleteTask(props._id);
-    }
+    toast(
+      (t) => (
+        <div className="custom-toast-styling">
+          <p>Are you sure you want to delete this task?</p>
+          <div>
+            {/* Delete Button */}
+            <button
+              onClick={async () => {
+                toast.dismiss(t.id); // Close confirmation toast
+                try {
+                  await deleteTask(props._id); // Await delete task
+                  toast.success("Task deleted successfully!", {
+                    duration: 3000,
+                  }); // Success toast
+                  Navigate("/alltask"); // Navigate to all tasks
+                } catch (error) {
+                  toast.error("Failed to delete task!"); // Error toast
+                }
+              }}
+            >
+              Delete
+            </button>
+
+            {/* Cancel Button */}
+            <button
+              onClick={() => {
+                toast.dismiss(t.id); // Close confirmation toast
+                Navigate("/alltask"); // Navigate back
+              }}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      ),
+      {
+        duration: 10000, // Toast visible for 10 seconds
+      }
+    );
   };
+  // if (window.confirm("Are you sure you want to delete this task?")) {
+  //   await deleteTask(props._id);
+  // }
   return (
     <motion.div
       variants={fadeIn("left", 0.2)}

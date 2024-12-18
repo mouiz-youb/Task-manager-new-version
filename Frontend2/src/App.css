@@ -849,3 +849,28 @@ textarea::placeholder {
   color: wheat;
 }
 /* ! -------------------------------- */
+.custom-toast-styling {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: "text" "button" "button";
+  border-radius: 15px;
+  background-color: #001c30;
+  box-shadow: 0px 0px 0px 0px #dafffb;
+  color: #dafffb;
+  padding: 10px;
+  height: 100px;
+}
+.custom-toast-styling p {
+  grid-area: text;
+  font-size: 20px;
+}
+.custom-toast-styling div {
+  grid-area: button;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  /* gap: 30px; */
+}
